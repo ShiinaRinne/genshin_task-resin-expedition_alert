@@ -6,6 +6,7 @@ import requests
 from .exceptions import APIError
 from .headers import headers
 from .utils import get_server
+from .model import BaseData
 
 session = requests.session()
 
@@ -48,4 +49,4 @@ class MysAPI:
 
     def get_dailyNote(self) -> Dict:
         url = 'https://api-takumi.mihoyo.com/game_record/app/genshin/api/dailyNote'
-        return self._request(url, params=self.body, cookie=self.cookie)
+        return BaseData.parse_obj(self._request(url, params=self.body, cookie=self.cookie))

@@ -76,6 +76,7 @@ RECEIVE_BOSS_COUNT|是否接收本周boss树脂减半剩余次数|ON
 RECEIVE_TASK_NUM|是否接收每日委托提示|ON
 REVEIVE_EXPEDITION_NUM|是否接收探索派遣提示|ON
 INCOMPLETE_ALERT|在这个时间，如果每日委托未完成，进行提示|213030(即21:30:30)
+SELLP_TIME|程序每轮执行的休眠时间，为避免被封ip，建议稍微长点|60
 
 
 ## 自定义提示信息：
