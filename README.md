@@ -1,5 +1,13 @@
 # Hoyolab Resin
 一个用来提示和查询原神内树脂、委托、派遣情况的小工具
+## 示例
+企业应用
+
+![](https://youngmoe.com/img/hoyolab_resin/5.png)
+
+server酱
+
+![](https://youngmoe.com/img/hoyolab_resin/6.png)
 
 ## 食用方法
 * 请确保米游社的实时便笺权限已经打开
@@ -54,10 +62,10 @@
 | key  | comment |example|
  ------------- |:-------------:|:--:
 UID|游戏uid|100088888
-COOKIE|米游社cookie     |****
-SENDKEY|server酱的sendkey   |****
-WECOM_CORP_ID|企业微信的企业id |****
-WECOM_SECRET|企业应用的secret| ****
+COOKIE|米游社cookie|****
+SENDKEY|server酱的sendkey|****
+WECOM_CORP_ID|企业微信的企业id|****
+WECOM_SECRET|企业应用的secret|****
 WECOM_USER_ID|企业微信收信人id|****
 WECOM_AGENT_ID |企业应用的agentid|****
 WECOM_STATUS|企业微信收信状态 "ON"为打开，其他为关闭|ON
