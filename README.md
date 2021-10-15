@@ -94,12 +94,12 @@ SELLP_TIME|程序每轮执行的休眠时间，为避免被封ip，建议稍微�
 
 
 ## 自定义提示信息：
-#### 根据需要修改resin.py即可(过两天有空会优化一下，现在有点丑)
+#### 根据需要修改dataanalystic.py等文件即可(过两天有空会优化一下，现在有点丑)
 
 #### server酱与企业微信均支持markdown语法，<br>
 
 server酱: desp直接使用markdown语法就可以<br>
-企业微信: 只需给wx.send_message添加参数"markdown"<br>
+企业微信: 只需给wx.send_message添加参数"markdown"(markdown暂时有bug)<br>
 
 
 

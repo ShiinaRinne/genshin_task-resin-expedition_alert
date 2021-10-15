@@ -2,7 +2,7 @@ from getinfo import MysAPI,APIError
 from getinfo.config import config
 from getinfo.model import BaseData
 from getinfo.send import SendWeixin,ServerChan
-from data_analystic import *
+from dataanalystic import *
 import time
 
 from receivedata import receive_data

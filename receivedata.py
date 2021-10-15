@@ -1,5 +1,5 @@
 from getinfo.config import config
-from data_analystic import *
+from dataanalystic import *
 
 def receive_data(base_data) -> list[str]:
     """
