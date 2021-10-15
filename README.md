@@ -13,12 +13,24 @@ server酱
 * 请确保米游社的实时便笺权限已经打开
 * 获取cookie
 
-0. [安装python3环境](https://www.python.org)
+0. [安装python3环境](https://www.python.org)，版本>=3.9
     
-1. 下载源码
+1. `git clone https://github.com/yaomeng0722/genshin_task-resin-expedition_alert.git`
 1. `pip3 install -r requirements.txt`
 1. 配置config.example.hson  (\[可选\]修改config.example.json并另存为config.json)
 1. `python3 resin.py`
+
+如果你的服务器已经有了较低版本的python环境，此处以centos为例：
+
+`yum install epel-release`
+
+`yum install python39`
+
+`pip3.9 install -r requirements.txt`
+
+`python3.9 resin.py`
+
+ubuntu、windows作类似修改或安装虚拟环境皆可
 
 ## Config.json配置
 
@@ -59,8 +71,8 @@ server酱
 
 ## config参数
 
-| key  | comment |example|
- ------------- |:-------------:|:--:
+key  | comment |example
+------------- |:-------------:|:--:
 UID|游戏uid|100088888
 COOKIE|米游社cookie|****
 SENDKEY|server酱的sendkey|****
