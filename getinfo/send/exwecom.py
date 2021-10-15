@@ -1,4 +1,4 @@
-from os import stat
+from typing import Literal
 import requests
 import json
 from ..config import config
@@ -7,11 +7,11 @@ urllib3.disable_warnings()
 
 
 class SendWeixin:
-    # Call the enterprise wechat interface to send wechat messages
-    def __init__(self, subject: str, message: str):  # Message subject and content
-        self.subject = subject
-        self.message = message
+    """
+    Call the enterprise wechat interface to send wechat messages
+    """
 
+    def __init__(self):  # Message subject and content
         self.corp_id = config.WECOM_CORP_ID
         self.secret = config.WECOM_SECRET
 
@@ -22,16 +22,22 @@ class SendWeixin:
         return token
 
     # msgtype: text || markdown
-    def send_message(self, msgtype: str = 'text') -> None:
+    def send_message(self, title: str, body: str, msgtype: Literal['text', 'markdown'] = 'text') -> None:
+        """
+
+        :param msgtype: markdown or text
+
+        but there are some errors in markdown, i have not debugged it yet
+        """
         url = f"https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={self.get_token()}"
         data = {
             "touser": config.WECOM_USER_ID,
             "msgtype": msgtype,
             "agentid": config.WECOM_AGENT_ID,
             "text": {
-                "content": self.subject + '\n' + self.message
+                "content": title + '\n' + body
             },
             "safe": "0"
         }
         r = requests.post(url=url, data=json.dumps(data), verify=False)
-        # print(r.json())
+        print(r.json())
