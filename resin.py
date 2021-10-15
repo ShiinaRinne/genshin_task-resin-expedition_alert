@@ -49,7 +49,6 @@ def main() -> None:
     
     
     info = "\n".join(result)
-    sendAll("亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", info)
     if(base_data.current_resin >= int(config.RESIN_ALERT_NUM)):
         sendAll("亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", info)
 
