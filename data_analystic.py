@@ -1,6 +1,3 @@
-from getinfo.send.exwecom import SendWeixin
-from getinfo.send.serverchan import ServerChan
-from getinfo.config import config
 from getinfo.model import BaseData
 import json
 

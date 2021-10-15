@@ -2,6 +2,9 @@ from getinfo import MysAPI
 from getinfo.exceptions import APIError
 from getinfo.config import config
 from getinfo.model import BaseData
+from getinfo.send.exwecom import SendWeixin
+from getinfo.send.serverchan import ServerChan
+from getinfo.config import config
 from data_analystic import *
 import time
 
@@ -12,7 +15,7 @@ def sendAll(title: str, info: str) -> None:
         wx.send_message()
         # wx.send_message("markdown")
 
-    if config.SERVER_CHAN_STATUS == "ON" and config.SENDKEY!="":
+    if config.SERVER_CHAN_STATUS == "ON" and config.SENDKEY != "":
         ServerChan.send(title, status="", desp=info)
 
 
@@ -28,22 +31,25 @@ def main() -> None:
     result: list[str] = []
 
     # current_resin
-    if(config.RECEIVE_RESIN_DATA == "ON"):
+    if config.RECEIVE_RESIN_DATA == "ON":
         result.append(get_resin_data(base_data))
 
     # resin_discount_num_limit
-    if(config.RECEIVE_BOSS_COUNT == "ON"):
+    if config.RECEIVE_BOSS_COUNT == "ON":
         result.append(get_resin_discount_data(base_data))
 
     # task_num
-    if(config.RECEIVE_TASK_NUM == "ON"):
+    if config.RECEIVE_TASK_NUM == "ON":
         result.append(get_task_num_data(base_data))
 
     # expedition_num
-    if(config.REVEIVE_EXPEDITION_NUM == "ON"):
+    if config.REVEIVE_EXPEDITION_NUM == "ON":
         result.append(get_expedition_data(base_data))
 
+    
+    
     info = "\n".join(result)
+    sendAll("亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", info)
     if(base_data.current_resin >= int(config.RESIN_ALERT_NUM)):
         sendAll("亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", info)
 
@@ -57,4 +63,4 @@ def main() -> None:
 if __name__ == "__main__":
     while True:
         main()
-        time.sleep(60)
+        time.sleep(config.SLEEP_TIME)

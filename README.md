@@ -68,15 +68,17 @@ WECOM_CORP_ID|企业微信的企业id|****
 WECOM_SECRET|企业应用的secret|****
 WECOM_USER_ID|企业微信收信人id|****
 WECOM_AGENT_ID |企业应用的agentid|****
-WECOM_STATUS|企业微信收信状态 "ON"为打开，其他为关闭|ON
-SERVER_CHAN_STATUS|server酱收信状态 "ON"为打开，其他为关闭|ON
+WECOM_STATUS|企业微信收信状态 "ON"为打开，"OFF"为关闭 下同|ON
+SERVER_CHAN_STATUS|server酱收信状态 |ON
 RESIN_ALERT_NUM|树脂达到多少时进行提示|150
 RECEIVE_RESIN_DATA|是否接收树脂溢出提示|ON
 RECEIVE_BOSS_COUNT|是否接收本周boss树脂减半剩余次数|ON
 RECEIVE_TASK_NUM|是否接收每日委托提示|ON
 REVEIVE_EXPEDITION_NUM|是否接收探索派遣提示|ON
-INCOMPLETE_ALERT|在这个时间，如果每日委托未完成，进行提示|213030(即21:30:30)
+INCOMPLETE_ALERT|在这个时间，如果每日委托未完成，进行提示|"213030"(即21:30:30)
 SELLP_TIME|程序每轮执行的休眠时间，为避免被封ip，建议稍微长点|60
+乱|填|会
+报|错|哦~
 
 
 ## 自定义提示信息：

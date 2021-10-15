@@ -1,5 +1,8 @@
 import pydantic
 from pydantic import root_validator, validator
+from typing import List, Literal
+
+
 class BaseData(pydantic.BaseModel):
     """
     current_resin=35 当前树脂
@@ -16,12 +19,12 @@ class BaseData(pydantic.BaseModel):
     """
     current_resin: int
     max_resin: int
-    resin_discount_num_limit: int
-    resin_recovery_time:int
-    current_expedition_num: int
-    finished_task_num:int
-    total_task_num:int 
-    is_extra_task_reward_received:bool
-    max_expedition_num:int
+    resin_discount_num_limit: Literal[0, 1, 2, 3]
+    resin_recovery_time: int
+    current_expedition_num: Literal[0, 1, 2, 3, 4, 5]
+    max_expedition_num: Literal[0, 1, 2, 3, 4, 5]
+    finished_task_num: Literal[0, 1, 2, 3, 4]
+    total_task_num: int = 4
+    is_extra_task_reward_received: bool
 
-    expeditions:list[dict]
+    expeditions: List[dict]
