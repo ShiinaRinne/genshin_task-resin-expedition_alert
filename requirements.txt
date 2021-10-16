@@ -1,6 +1,0 @@
-requests==2.26.0
-pydantic==1.8.2
-PyMySQL==1.0.2
-types-PyMySQL==1.0.2
-python-dotenv==0.19.0
-loguru==0.5.3

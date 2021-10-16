@@ -1,0 +1,30 @@
+{
+  "UID":"",
+  "COOKIE": "",
+
+  "SCKEY": "",
+  "SCTKEY":"",
+  "WW_ID": "",
+  "WW_APP_SECRET": "",
+  "WW_APP_USERID": "",
+  "WW_APP_AGENTID": "",
+  "WW_BOT_KEY": "",
+  "DD_BOT_TOKEN": "",
+  "DD_BOT_SECRET": "",
+  "DISCORD_WEBHOOK": "",
+  "IGOT_KEY": "",
+  "PUSH_PLUS_TOKEN": "",
+  "PUSH_PLUS_USER": "",
+  "TG_BOT_API": "api.telegram.org",
+  "TG_BOT_TOKEN": "",
+  "TG_USER_ID": "",
+  
+  "RESIN_ALERT_NUM":"150",
+  "RECEIVE_RESIN_DATA":"ON",
+  "RECEIVE_BOSS_COUNT":"ON",
+  "RECEIVE_TASK_NUM":"ON",
+  "REVEIVE_EXPEDITION_NUM":"ON",
+  "INCOMPLETE_ALERT":"215959",
+  "SLEEP_TIME":60,
+  "ALERT_SUCCESS_SLEEP_TIME":1800
+}
