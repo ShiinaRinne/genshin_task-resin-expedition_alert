@@ -14,7 +14,6 @@ from .exceptions import NoSuchNotifierError
 
 
 _all_notifiers = {
-    
     'dingtalkbot': dingtalkbot.DingTalkBot,
     'discordwebhook': discordwebhook.Discord,
     'igot': igot.Igot,

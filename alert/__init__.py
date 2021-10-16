@@ -46,7 +46,20 @@ def main() -> None:
             send(status="亲爱的亲爱的亲爱的旅行者！你今日的委托还没有完成哦~", message=message)
             
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
+            
+# for qqbot
+def qqmessage()-> str:
+    uid = config.UID
+    cookie = config.COOKIE
+    try:
+        base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
+    except APIError:
+        send(status="error", message="发生错误，请检查cookie与id是否对应")
+        exit()
 
+    result: str = receive_data(base_data)
+
+    return "\n".join(result)
 
 if __name__ == "__main__":
     while True:

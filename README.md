@@ -9,6 +9,10 @@ server酱
 
 ![](https://youngmoe.com/img/hoyolab_resin/6.png)
 
+qq
+
+![](https://youngmoe.com/img/hoyolab_resin/7.png)
+
 ## 食用方法
 * 请确保米游社的实时便笺权限已经打开
 * 获取cookie
@@ -28,7 +32,7 @@ server酱
 
 `pip3.9 install -r requirements.txt`
 
-`python3.9 resin.py`
+`python3.9 index.py`
 
 ubuntu、windows作类似修改或安装虚拟环境皆可(大概?)
 
@@ -77,6 +81,48 @@ server酱免费版每天有5次的调用次数上限
 
 6. 修改 WECOM_STATUS 为ON
 
+
+### qqbot
+qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支持windows平台
+
+目前只有私聊功能，群聊使用可能需要代部署(即由他人来保存你的cookie并发送消息，会有很多不必要的风险，暂时不考虑做)
+
+[None2bot官方文档参考](https://v2.nonebot.dev/guide/)
+1. 安装虚拟环境 此处以virtualenv 为例<br> `pip install virtualenv`
+2. cd到你想要安装的文件夹 输入 `virtualenv your-mkdir-name` 创建虚拟环境
+3. cd到Scripts目录，使用普通cmd(非powershell)输入`activate`
+4. 如果之前有NoneBot v1，需要卸载 <br>`pip uninstall nonebot`
+5.  `pip install nb-cli`<br>
+6. `cd ..` <br>`nb create` <br>创建目录，根据提示输入项目名称、插件存放路径、安装的插件 <br>
+在选择安装插件时，注意用空格勾选cqhttp之后再回车
+<br>项目目录内包含`bot.py`<br>
+在命令行使用如下命令即可运行这个NoneBot实例<br>
+`nb run`<br>
+或者<br>
+`python bot.py`
+7. [根据服务器版本安装机器人客户端并登录](https://github.com/Mrs4s/go-cqhttp/releases)<br>
+[文档参考](https://v2.nonebot.dev/guide/cqhttp-guide.html)<br>
+        运行.exe文件或者`./go-cqhttp`启动
+        生成默认配置文件并修改默认配置
+        修改`config.yml`文件
+
+        account:
+          uin: 机器人QQ号
+          password: "机器人密码"
+        
+        message:
+          post-format: array
+        
+        servers:
+          - ws-reverse:
+              universal: ws://127.0.0.1:8080/cqhttp/ws
+
+8. 在含有`bot.py`的项目目录中新建目录`plugins/resin_alert`并将源码中的alert文件夹复制进去,配置config_data/config_example.json中的UID与COOKIE
+9. 将alert/for\_qq文件夹中的\__init_\__.py与config.py移至resin_alert文件夹
+10. 修改`bot.py`，在main前添加`nonebot.load_plugins("plugins")`
+11. 通过qq发送/resin 总览查看是否有消息返回，如果没有，尝试/echo hello查看是否有"hello"返回,都没有请提交issue
+
+
 ## config参数
 
 | key                      |                      comment                       |       example        |
@@ -121,3 +167,7 @@ server酱免费版每天有5次的调用次数上限
 [y1ndan](https://www.yindan.me/tutorial/genshin-impact-helper.html) notifiers 多渠道发送消息
 
 [lulu666lulu](https://github.com/lulu666lulu) ds的算法
+
+[Mrs4s](https://github.com/Mrs4s) cqhttp客户端
+
+[nonebot](https://github.com/nonebot/nonebot2) nonebot机器人框架
