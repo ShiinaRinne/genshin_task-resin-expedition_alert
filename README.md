@@ -1,6 +1,8 @@
 # Hoyolab Resin
-用来提示和查询原神内树脂、委托、派遣情况的小工具
+用来提示和查询原神内树脂、委托、派遣情况的小工具<br>
+近期的迭代可能会比较快
 ## 示例
+
 企业微信
 
 ![](https://youngmoe.com/img/hoyolab_resin/5.png)
@@ -20,8 +22,8 @@ qq
 0. [安装python3环境](https://www.python.org)，版本>=3.9
     
 1. `git clone https://github.com/yaomeng0722/genshin_task-resin-expedition_alert.git`
-1. `pip3 install -r requirements.txt`
-1. 配置config.example.hson  (\[可选\]修改config.example.json并另存为config.json)
+2. `pip3 install -r requirements.txt`
+3  配置config.example.hson 配置方法如下 (\[可选\]修改config.example.json并另存为config.json)
 1. `python3 index.py`
 
 如果你的服务器已经有了较低版本的python环境，此处以centos为例：
@@ -42,7 +44,6 @@ ubuntu、windows作类似修改或安装虚拟环境皆可(大概?)
 
 **tg等其他渠道在慢慢测了**
 
-**之后可能还会增加qq机器人**
 
 <s> 以及代部署(咳咳会死的)</s>
 ### 0. 一些基础信息
@@ -53,13 +54,16 @@ ubuntu、windows作类似修改或安装虚拟环境皆可(大概?)
     <br>  复制上面的代码存储为书签，打开社区之后，点击该书签，复制弹出的信息并填入config -> COOKIE即可</br>
 
 ### 1. server酱
-1. 前往[server酱](https://sct.ftqq.com/)官网注册并绑定微信
-1. 将获取到的send key填入config -> SCKEY中即可
-1. 修改 SERVER_CHAN_STATUS 为ON
+<details>
+1. 前往[server酱](https://sct.ftqq.com/)官网注册并绑定微信<br>
+2. 将获取到的send key填入config -> SCKEY中即可<br>
+3. 修改 SERVER_CHAN_STATUS 为ON<br>
 
 server酱免费版每天有5次的调用次数上限
+</details>
 
 ### 2. 企业微信
+<details>
 1. [注册企业微信](https://work.weixin.qq.com/)(个人即可注册，不需要进行企业身份验证)
 
 
@@ -81,20 +85,23 @@ server酱免费版每天有5次的调用次数上限
 
 6. 修改 WECOM_STATUS 为ON
 
+</details>
 
-### qqbot
-qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支持windows平台
+### 3.qqbot
+暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息
+<details>
+qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支持windows平台<br>
 
 目前只有私聊功能，群聊使用可能需要代部署(即由他人来保存你的cookie并发送消息，会有很多不必要的风险，暂时不考虑做)
-
-[None2bot官方文档参考](https://v2.nonebot.dev/guide/)
-1. 安装虚拟环境 此处以virtualenv 为例<br> `pip install virtualenv`
-2. cd到你想要安装的文件夹 输入 `virtualenv your-mkdir-name` 创建虚拟环境
-3. cd到Scripts目录，使用普通cmd(非powershell)输入`activate`
-4. 如果之前有NoneBot v1，需要卸载 <br>`pip uninstall nonebot`
-5.  `pip install nb-cli`<br>
-6. `cd ..` <br>`nb create` <br>创建目录，根据提示输入项目名称、插件存放路径、安装的插件 <br>
-在选择安装插件时，注意用空格勾选cqhttp之后再回车
+<br>
+[None2bot官方文档参考](https://v2.nonebot.dev/guide/)<br>
+1. 安装虚拟环境 此处以virtualenv 为例<br> `pip install virtualenv`<br>
+2. cd到你想要安装的文件夹 输入 `virtualenv your-mkdir-name` 创建虚拟环境<br>
+3. cd到Scripts目录，使用普通cmd(非powershell)输入`activate`<br>
+4. 如果之前有NoneBot v1，需要卸载 `pip uninstall nonebot`<br>
+5. `pip install nb-cli`安装脚手架<br>
+6. `cd ..` <br>`nb create` <br>创建目录，根据提示输入项目名称、插件存放路径、安装的插件 <br><br>
+在选择安装插件时，注意用空格勾选cqhttp之后再回车<br>
 <br>项目目录内包含`bot.py`<br>
 在命令行使用如下命令即可运行这个NoneBot实例<br>
 `nb run`<br>
@@ -121,7 +128,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 9. 将alert/for\_qq文件夹中的\__init_\__.py与config.py移至resin_alert文件夹
 10. 修改`bot.py`，在main前添加`nonebot.load_plugins("plugins")`
 11. 通过qq发送/resin 总览查看是否有消息返回，如果没有，尝试/echo hello查看是否有"hello"返回,都没有请提交issue
-
+</details>
 
 ## config参数
 
