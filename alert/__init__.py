@@ -48,7 +48,7 @@ def main() -> None:
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
             
 # for qqbot
-def qqmessage()-> str:
+def qqmessage()-> list[str]:
     uid = config.UID
     cookie = config.COOKIE
     try:
@@ -57,9 +57,36 @@ def qqmessage()-> str:
         send(status="error", message="发生错误，请检查cookie与id是否对应")
         exit()
 
-    result: str = receive_data(base_data)
+    result: list[str] = receive_data(base_data)
 
-    return "\n".join(result)
+    return result
+
+def qq_query(query_param:str) -> str:
+    uid = config.UID
+    cookie = config.COOKIE
+    try:
+        base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
+    except APIError:
+        return "发生错误，请检查cookie与id是否对应"
+    
+    match query_param:
+        case "总览":
+            result: list[str] = receive_data(base_data)
+            return '\n'.join(result)
+        case "树脂":
+            # return "没错"
+            return get_resin_data(base_data)
+        case "boss":
+            return get_resin_discount_data(base_data)
+        case "委托":
+            return get_task_num_data(base_data)
+        case "派遣":
+            return get_expedition_data(base_data)
+
+        case _:
+            return "查询参数有误"
+
+
 
 if __name__ == "__main__":
     while True:

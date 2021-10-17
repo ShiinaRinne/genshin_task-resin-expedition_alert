@@ -23,4 +23,5 @@ def receive_data(base_data) -> list[str]:
     # expedition_num
     if config.REVEIVE_EXPEDITION_NUM == "ON":
         result.append(get_expedition_data(base_data))
+        
     return result

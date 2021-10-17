@@ -3,7 +3,7 @@ from nonebot.rule import to_me
 from nonebot.typing import T_State
 from nonebot.adapters import Bot, Event
 
-from .alert import alert
+from .alert import qq_query
 
 resin = on_command("resin", rule=to_me(), priority=5)
 
@@ -17,12 +17,8 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
 
 @resin.got("param", prompt="你想对我做些什么呢")
 async def handle_param(bot: Bot, event: Event, state: T_State):
-    param = state["param"]
-    # if param not in ["总览"]:
-    # if param != "总览":
-    #     await resin.reject("功能暂不支持，请重新输入！\n目前支持的有:\n1.总览")
-    info = await get_info(param)
-    await resin.finish(info)
+    Query_Param = state["param"]
+    await resin.finish(qq_query(Query_Param))
 
 
 async def get_info(param: str):

@@ -19,7 +19,7 @@ qq
 * 请确保米游社的实时便笺权限已经打开
 * 获取cookie
 
-0. [安装python3环境](https://www.python.org)，版本>=3.9
+0. [安装python3环境](https://www.python.org)，版本>=3.9 **如果要使用qqbot，需要安装3.10及以上版本**
     
 1. `git clone https://github.com/yaomeng0722/genshin_task-resin-expedition_alert.git`
 2. `pip3 install -r requirements.txt`
@@ -57,7 +57,6 @@ ubuntu、windows作类似修改或安装虚拟环境皆可(大概?)
 <details>
 1. 前往[server酱](https://sct.ftqq.com/)官网注册并绑定微信<br>
 2. 将获取到的send key填入config -> SCKEY中即可<br>
-3. 修改 SERVER_CHAN_STATUS 为ON<br>
 
 server酱免费版每天有5次的调用次数上限
 </details>
@@ -83,13 +82,14 @@ server酱免费版每天有5次的调用次数上限
 
 ![](https://youngmoe.com/img/hoyolab_resin/4.png)
 
-6. 修改 WECOM_STATUS 为ON
 
 </details>
 
 ### 3.qqbot
-暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息
+<summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
+**由于使用了match case，所以需要python版本>=3.10**
 <details>
+
 qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支持windows平台<br>
 
 目前只有私聊功能，群聊使用可能需要代部署(即由他人来保存你的cookie并发送消息，会有很多不必要的风险，暂时不考虑做)
@@ -107,27 +107,37 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 `nb run`<br>
 或者<br>
 `python bot.py`
-7. [根据服务器版本安装机器人客户端并登录](https://github.com/Mrs4s/go-cqhttp/releases)<br>
-[文档参考](https://v2.nonebot.dev/guide/cqhttp-guide.html)<br>
-        运行.exe文件或者`./go-cqhttp`启动
-        生成默认配置文件并修改默认配置
-        修改`config.yml`文件
-
-        account:
-          uin: 机器人QQ号
-          password: "机器人密码"
+7. [根据服务器版本安装机器人客户端并登录](https://github.com/Mrs4s/go-cqhttp/releases)      <br>
+[文档参考](https://v2.nonebot.dev/guide/cqhttp-guide.html)      <br>
+        运行.exe文件或者`./go-cqhttp`启动<br>
+    
+    
+        生成默认配置文件并修改默认配置<br>
         
-        message:
-          post-format: array
+        修改`config.yml`文件<br>
+    
+        account:<br>
+           uin: 机器人QQ号<br>
+            password: "机器人密码"<br>
         
-        servers:
-          - ws-reverse:
-              universal: ws://127.0.0.1:8080/cqhttp/ws
+        message:<br>
+            post-format: array<br>
+        
+        servers:<br>
+          - ws-reverse:<br>
+              universal: ws://127.0.0.1:8080/cqhttp/ws<br>
 
-8. 在含有`bot.py`的项目目录中新建目录`plugins/resin_alert`并将源码中的alert文件夹复制进去,配置config_data/config_example.json中的UID与COOKIE
-9. 将alert/for\_qq文件夹中的\__init_\__.py与config.py移至resin_alert文件夹
-10. 修改`bot.py`，在main前添加`nonebot.load_plugins("plugins")`
+8. 在含有`bot.py`的项目目录中新建目录`plugins/resin_alert`并将源码中的alert文件夹复制进去,配置config\_data/config\_example.json中的UID与COOKIE<br>
+
+
+9. 将alert/for\_qq文件夹中的\_\_init\_\_.py与config.py移至resin_alert文件夹<br>
+
+
+10. 修改`bot.py`，在main前添加`nonebot.load_plugins("plugins")`<br>
+
+
 11. 通过qq发送/resin 总览查看是否有消息返回，如果没有，尝试/echo hello查看是否有"hello"返回,都没有请提交issue
+
 </details>
 
 ## config参数
