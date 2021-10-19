@@ -74,7 +74,7 @@
 | [Server 酱](https://sct.ftqq.com/) | ✅可用    | 免费版每天限制5条 |
 | [企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770) | ✅可用    |                   |
 | [钉钉群机器人](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027) | ✅可用    |                   |
-| [pushplus](http://www.pushplus.plus/) | ✅可用    |                   |
+| [pushplus](https://www.pushplus.plus/) | ✅可用    |                   |
 | [Telegram Bot](https://core.telegram.org/bots) | ✅可用    |                   |
 | QQ | ✅可用    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
