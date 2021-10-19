@@ -33,7 +33,7 @@
 
 0. 安装 [python3](https://www.python.org) 环境，版本>=3.9。
 
-    **如果要使用qqbot，需要安装3.10及以上版本.**
+    **如果要使用qqbot，需要安装3.10及以上版本。**
 
     如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
 
@@ -45,7 +45,7 @@
     ```
     Ubuntu、Windows作类似修改或安装虚拟环境皆可(大概?)。
 
-1. 下载项目
+1. 下载项目并安装依赖
     ```shell
     git clone https://github.com/yaomeng0722/genshin_task-resin-expedition_alert.git
     cd genshin_task-resin-expedition_alert
@@ -53,10 +53,10 @@
     ```
 2. 修改配置
 
-    复制 `./alert/config_data/config.example.json` 并另存为 `config.json` 
+    复制 `./alert/config_data/config.example.json` 并另存为 `config.json`，填入配置信息。
     ```
     cp ./alert/config_data/config.example.json ./alert/config_data/config.json
-    vi ./alert/config_data/config.example.json
+    vi ./alert/config_data/config.json
     ```
 3. 运行项目
     ```
@@ -69,14 +69,14 @@
 
 **推送渠道未全部测试完成，详情如下**
 
-| 推送渠道     | 可用性 | 备注              |
+| 推送渠道     | 支持情况 | 备注              |
 | :----------: | :------: | :---------------: |
-| [Server 酱](https://sct.ftqq.com/) | ✅可用    | 免费版每天限制5条 |
-| [企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770) | ✅可用    |                   |
-| [钉钉群机器人](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027) | ✅可用    |                   |
-| [pushplus](https://www.pushplus.plus/) | ✅可用    |                   |
-| [Telegram Bot](https://core.telegram.org/bots) | ✅可用    |                   |
-| QQ | ✅可用    | 基于 NoneBot2 |
+| [Server 酱](https://sct.ftqq.com/) | ✅支持    | 免费版每天限制5条 |
+| [企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770) | ✅支持    |                   |
+| [钉钉群机器人](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027) | ✅支持    |                   |
+| [pushplus](https://www.pushplus.plus/) | ✅支持    |                   |
+| [Telegram Bot](https://core.telegram.org/bots) | ✅支持    |                   |
+| QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
 | 自定义推送 | ❌暂不支持 |                   |
