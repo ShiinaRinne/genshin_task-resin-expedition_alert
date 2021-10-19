@@ -93,7 +93,7 @@
     ```
     复制上面的代码存储为书签，打开社区之后，点击该书签，复制弹出的信息并填入config -> COOKIE即可。
 
-### 1. server酱
+### 1. Server 酱
 <details>
 1. 前往[Server酱](https://sct.ftqq.com/)官网注册并绑定微信<br>
 2. 将获取到的`send key`填入`config.json -> SCKEY`中即可<br>
