@@ -12,7 +12,7 @@ def send(status:str,message:str) -> None:
     # message_box = '\n'.join(message)
 
     # The ``` is added to use markdown code block
-    markdown_message = f'```\n{message}```'
+    markdown_message = f'```\n{message}'
     try:
         notifiers.send2all(status=status, desp=markdown_message)
     except Exception as e:
@@ -25,7 +25,7 @@ def main() -> None:
     try:
         base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
     except APIError:
-        send(status="error", message="发生错误，请检查cookie与id是否对应")
+        send(status="error", message="发生错误，请检查cookie与id是否对应或是否已开启米游社实时便笺功能。")
         exit()
 
     result: str = receive_data(base_data)
@@ -34,8 +34,11 @@ def main() -> None:
     # send(status="亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", message=message) # 调试用
     # 树脂达到临界时
     if(base_data.current_resin >= int(config.RESIN_ALERT_NUM)):
-        send(status="亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", message=message)
-        
+        if(base_data.current_resin >= 160):
+            send(status="亲爱的亲爱的亲爱的旅行者！树脂已经溢出啦！", message=message)
+        else:
+            send(status="亲爱的亲爱的亲爱的旅行者！树脂快要溢出啦！", message=message)
+
         time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
 
     # 半夜委托没做完时
@@ -46,7 +49,7 @@ def main() -> None:
             send(status="亲爱的亲爱的亲爱的旅行者！你今日的委托还没有完成哦~", message=message)
             
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
-            
+
 # for qqbot
 def qqmessage()-> list[str]:
     uid = config.UID
@@ -54,7 +57,7 @@ def qqmessage()-> list[str]:
     try:
         base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
     except APIError:
-        send(status="error", message="发生错误，请检查cookie与id是否对应")
+        send(status="error", message="发生错误，请检查cookie与id是否对应或是否已开启米游社实时便笺功能。")
         exit()
 
     result: list[str] = receive_data(base_data)
@@ -67,7 +70,7 @@ def qq_query(query_param:str) -> str:
     try:
         base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
     except APIError:
-        return "发生错误，请检查cookie与id是否对应"
+        return "发生错误，请检查cookie与id是否对应或是否已开启米游社实时便笺功能。"
     
     match query_param:
         case "总览":
