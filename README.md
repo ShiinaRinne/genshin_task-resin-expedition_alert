@@ -65,7 +65,7 @@
 
 
 
-## Config.json 配置
+## 推送方式配置
 
 **推送渠道未全部测试完成，详情如下**
 
@@ -95,22 +95,22 @@
 
 ### 1. Server 酱
 <details>
-1. 前往[Server酱](https://sct.ftqq.com/)官网注册并绑定微信<br>
-2. 将获取到的`send key`填入`config.json -> SCKEY`中即可<br>
-注：Server酱免费版每天有5次的调用次数上限
+1. 前往[Server酱](https://sct.ftqq.com/) 官网注册并绑定微信。
+2. 将获取到的`send key`填入`config.json -> SCKEY`中即可。
+注：Server酱免费版每天有5次的调用次数上限。
 </details>
 
 ### 2. 企业微信
 <details>
-1. [注册企业微信](https://work.weixin.qq.com/)(个人即可注册，不需要进行企业身份验证)
+1. [注册企业微信](https://work.weixin.qq.com/) ，个人即可注册，不需要进行企业身份验证。
 
 2. 在"应用管理"中创建新应用
 
-![](https://youngmoe.com/img/hoyolab_resin/1.png "(个人即可注册，不需要进行企业身份验证)")
+![](https://youngmoe.com/img/hoyolab_resin/1.png)
 
 3. 在应用中查看agentid与secret分别填入config -> WECOM_AGENT_ID 与 config -> WECOM_SECRET (注：secret需要在手机端的企业微信进行查看)
 
-![](https://youngmoe.com/img/hoyolab_resin/3.png "secret需要在手机端的企业微信进行查看")
+![](https://youngmoe.com/img/hoyolab_resin/3.png)
 
 4. 在"我的企业"中获取企业id填入config -> WECOM_CORP_ID
 
@@ -125,7 +125,7 @@
 
 ### 3. 钉钉群机器人
 <details>
-1. 创建钉钉群，并添加自定义机器人，参见[钉钉开放平台·自定义机器人接入](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027)。
+1. 创建钉钉群，并添加自定义机器人，参见 [钉钉开放平台·自定义机器人接入](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027)。
 
 2. 将生成的 Webhook 地址中的 `access_token`填入 `DD_BOT_TOKEN`。
 
@@ -134,12 +134,12 @@
 
 ### 4.Push Plus
 <details>
-1. 登录 [pushplus 网站](http://www.pushplus.plus/)，复制 token 填入 `PUSH_PLUS_TOKEN`。
+1. 登录 [pushplus 网站](http://www.pushplus.plus/) ，复制 token 填入 `PUSH_PLUS_TOKEN`。
 
 2. 若要一对多推送，需要创建群组并将群组编号填入 `PUSH_PLUS_USER`，一对一推送无需填写。
 </details>
 
-### 3.qqbot
+### 5.qqbot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
 **由于使用了match case，所以需要python版本>=3.10**
 
@@ -194,7 +194,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 </details>
 
-## config参数
+## 配置文件参数说明
 
 | Key                      |                      Comment                       |       Remark        |
 | ------------------------ | :------------------------------------------------: | :------------------: |
