@@ -1,3 +1,5 @@
 __pycache__/
 **/__pycache__/
 *.pyc
+
+alert/congfig_data/config.json

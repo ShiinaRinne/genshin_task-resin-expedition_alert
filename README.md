@@ -33,7 +33,7 @@
 
 0. 安装 [python3](https://www.python.org) 环境，版本>=3.9。
 
-    **如果要使用qqbot，需要安装3.10及以上版本.**
+    **如果要使用qqbot，需要安装3.10及以上版本。**
 
     如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
 
@@ -45,7 +45,7 @@
     ```
     Ubuntu、Windows作类似修改或安装虚拟环境皆可(大概?)。
 
-1. 下载项目
+1. 下载项目并安装依赖
     ```shell
     git clone https://github.com/yaomeng0722/genshin_task-resin-expedition_alert.git
     cd genshin_task-resin-expedition_alert
@@ -53,10 +53,10 @@
     ```
 2. 修改配置
 
-    复制 `./alert/config_data/config.example.json` 并另存为 `config.json` 
+    复制 `./alert/config_data/config.example.json` 并另存为 `config.json`，填入配置信息。
     ```
     cp ./alert/config_data/config.example.json ./alert/config_data/config.json
-    vi ./alert/config_data/config.example.json
+    vi ./alert/config_data/config.json
     ```
 3. 运行项目
     ```
@@ -65,18 +65,18 @@
 
 
 
-## Config.json 配置
+## 推送方式配置
 
 **推送渠道未全部测试完成，详情如下**
 
-| 推送渠道     | 可用性 | 备注              |
+| 推送渠道     | 支持情况 | 备注              |
 | :----------: | :------: | :---------------: |
-| [Server 酱](https://sct.ftqq.com/) | ✅可用    | 免费版每天限制5条 |
-| [企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770) | ✅可用    |                   |
-| [钉钉群机器人](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027) | ✅可用    |                   |
-| [pushplus](https://www.pushplus.plus/) | ✅可用    |                   |
-| [Telegram Bot](https://core.telegram.org/bots) | ✅可用    |                   |
-| QQ | ✅可用    | 基于 NoneBot2 |
+| [Server 酱](https://sct.ftqq.com/) | ✅支持    | 免费版每天限制5条 |
+| [企业微信](https://work.weixin.qq.com/api/doc/90000/90136/91770) | ✅支持    |                   |
+| [钉钉群机器人](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027) | ✅支持    |                   |
+| [pushplus](https://www.pushplus.plus/) | ✅支持    |                   |
+| [Telegram Bot](https://core.telegram.org/bots) | ✅支持    |                   |
+| QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
 | 自定义推送 | ❌暂不支持 |                   |
@@ -95,22 +95,27 @@
 
 ### 1. Server 酱
 <details>
-1. 前往[Server酱](https://sct.ftqq.com/)官网注册并绑定微信<br>
-2. 将获取到的`send key`填入`config.json -> SCKEY`中即可<br>
-注：Server酱免费版每天有5次的调用次数上限
+
+1. 前往[Server酱](https://sct.ftqq.com/) 官网注册并绑定微信。
+
+2. 将获取到的`send key`填入`config.json -> SCKEY`中即可。
+
+注：Server酱免费版每天有5次的调用次数上限。
+
 </details>
 
 ### 2. 企业微信
 <details>
-1. [注册企业微信](https://work.weixin.qq.com/)(个人即可注册，不需要进行企业身份验证)
+
+1. [注册企业微信](https://work.weixin.qq.com/) ，个人即可注册，不需要进行企业身份验证。
 
 2. 在"应用管理"中创建新应用
 
-![](https://youngmoe.com/img/hoyolab_resin/1.png "(个人即可注册，不需要进行企业身份验证)")
+![](https://youngmoe.com/img/hoyolab_resin/1.png)
 
 3. 在应用中查看agentid与secret分别填入config -> WECOM_AGENT_ID 与 config -> WECOM_SECRET (注：secret需要在手机端的企业微信进行查看)
 
-![](https://youngmoe.com/img/hoyolab_resin/3.png "secret需要在手机端的企业微信进行查看")
+![](https://youngmoe.com/img/hoyolab_resin/3.png)
 
 4. 在"我的企业"中获取企业id填入config -> WECOM_CORP_ID
 
@@ -125,21 +130,23 @@
 
 ### 3. 钉钉群机器人
 <details>
-1. 创建钉钉群，并添加自定义机器人，参见[钉钉开放平台·自定义机器人接入](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027)。
+
+1. 创建钉钉群，并添加自定义机器人，参见 [钉钉开放平台·自定义机器人接入](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027)。
 
 2. 将生成的 Webhook 地址中的 `access_token`填入 `DD_BOT_TOKEN`。
 
 3. 将创建过程中`加签`的密钥填入`DD_BOT_SECRET`。
 </details>
 
-### 4.Push Plus
+### 4. Push Plus
 <details>
-1. 登录 [pushplus 网站](http://www.pushplus.plus/)，复制 token 填入 `PUSH_PLUS_TOKEN`。
+
+1. 登录 [pushplus 网站](http://www.pushplus.plus/) ，复制 token 填入 `PUSH_PLUS_TOKEN`。
 
 2. 若要一对多推送，需要创建群组并将群组编号填入 `PUSH_PLUS_USER`，一对一推送无需填写。
 </details>
 
-### 3.qqbot
+### 5. QQBot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
 **由于使用了match case，所以需要python版本>=3.10**
 
@@ -194,7 +201,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 </details>
 
-## config参数
+## 配置文件参数说明
 
 | Key                      |                      Comment                       |       Remark        |
 | ------------------------ | :------------------------------------------------: | :------------------: |
