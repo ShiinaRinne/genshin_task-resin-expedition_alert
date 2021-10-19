@@ -18,7 +18,7 @@ class ConfigData(pydantic.BaseModel):
     IGOT_KEY: str
     PUSH_PLUS_TOKEN: str
     PUSH_PLUS_USER: str
-    TG_BOT_API: Literal["api.telegram.org"]
+    TG_BOT_API: str
     TG_BOT_TOKEN: str
     TG_USER_ID: str
 
