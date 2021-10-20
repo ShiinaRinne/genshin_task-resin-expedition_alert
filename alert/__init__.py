@@ -49,6 +49,7 @@ def main() -> None:
             send(status="亲爱的亲爱的亲爱的旅行者！你今日的委托还没有完成哦~", message=message)
             
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
+    time.sleep(config.SLEEP_TIME)
 
 # for qqbot
 def qqmessage()-> list[str]:
@@ -85,10 +86,3 @@ def qq_query(query_param:str) -> str:
         return get_expedition_data(base_data)
     else:
         return "查询参数有误"
-
-
-
-if __name__ == "__main__":
-    while True:
-        main()
-        time.sleep(config.SLEEP_TIME)

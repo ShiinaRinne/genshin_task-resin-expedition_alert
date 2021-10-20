@@ -1,3 +1,3 @@
 from alert import main
-
-main()
+while True: 
+    main()
