@@ -1,0 +1,6 @@
+# Cache
+__pycache__
+*.pyc
+
+# Config
+config.json
