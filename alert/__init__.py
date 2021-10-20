@@ -72,22 +72,19 @@ def qq_query(query_param:str) -> str:
     except APIError:
         return "发生错误，请检查cookie与id是否对应或是否已开启米游社实时便笺功能。"
     
-    match query_param:
-        case "总览":
-            result: list[str] = receive_data(base_data)
-            return '\n'.join(result)
-        case "树脂":
-            # return "没错"
-            return get_resin_data(base_data)
-        case "boss":
-            return get_resin_discount_data(base_data)
-        case "委托":
-            return get_task_num_data(base_data)
-        case "派遣":
-            return get_expedition_data(base_data)
-
-        case _:
-            return "查询参数有误"
+    if(query_param=="总览"):
+        result: list[str] = receive_data(base_data)
+        return '\n'.join(result)
+    elif(query_param=="树脂"):
+        return get_resin_data(base_data)
+    elif(query_param=="boss"):
+        return get_resin_discount_data(base_data)
+    elif(query_param=="委托"):
+        return get_task_num_data(base_data)
+    elif(query_param=="派遣"):
+        return get_expedition_data(base_data)
+    else:
+        return "查询参数有误"
 
 
 
