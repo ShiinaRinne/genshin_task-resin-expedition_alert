@@ -21,6 +21,9 @@ class ConfigData(pydantic.BaseModel):
     TG_BOT_API: str
     TG_BOT_TOKEN: str
     TG_USER_ID: str
+    COOL_PUSH_SKEY: str
+    COOL_PUSH_MODE: Literal["send","psend","group","pgroup"]
+    COOL_PUSH_SENDID: str
 
     RESIN_ALERT_NUM: str 
     RECEIVE_RESIN_DATA: Literal["ON","OFF"]

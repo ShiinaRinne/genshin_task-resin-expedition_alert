@@ -18,6 +18,9 @@
   "TG_BOT_API": "api.telegram.org",
   "TG_BOT_TOKEN": "",
   "TG_USER_ID": "",
+  "COOL_PUSH_SKEY": "",
+  "COOL_PUSH_MODE": "send",
+  "COOL_PUSH_SENDID":"",
   
   "RESIN_ALERT_NUM":"150",
   "RECEIVE_RESIN_DATA":"ON",

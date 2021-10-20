@@ -45,10 +45,11 @@ class Config():
 
         # self.BARK_SOUND = self.get_config('BARK_SOUND')
 
-        # # Cool Push
-        # self.COOL_PUSH_SKEY = self.get_config('COOL_PUSH_SKEY')
-        # self.COOL_PUSH_MODE = self.get_config('COOL_PUSH_MODE')
-
+        # Cool Push
+        self.config_data['COOL_PUSH_SKEY'] = self.get_config('COOL_PUSH_SKEY')
+        self.config_data['COOL_PUSH_MODE'] = self.get_config('COOL_PUSH_MODE')
+        self.config_data['COOL_PUSH_SENDID'] = self.get_config('COOL_PUSH_SENDID')
+        
         # # Custom Notifier Config
         # self.CUSTOM_NOTIFIER = self.get_config('CUSTOM_NOTIFIER')
 
