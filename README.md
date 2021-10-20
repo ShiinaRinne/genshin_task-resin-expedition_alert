@@ -33,8 +33,6 @@
 
 0. 安装 [python3](https://www.python.org) 环境，版本>=3.9。
 
-    **如果要使用qqbot，需要安装3.10及以上版本。**
-
     如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
 
     ```shell
