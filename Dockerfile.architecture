@@ -1,4 +1,4 @@
-FROM python:3.9.7-alpine
+FROM --platform=$TARGETPLATFORM python:3.9.7-alpine
 ENV TZ=Asia/Shanghai
 
 WORKDIR /tmp

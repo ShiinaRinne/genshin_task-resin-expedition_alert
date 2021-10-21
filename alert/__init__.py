@@ -4,6 +4,7 @@ from . import notifiers
 from .getinfo.dataanalystic import *
 import time
 
+from .notifiers.utils import log
 from .getinfo.receivedata import receive_data
 
 
@@ -36,7 +37,7 @@ def main() -> None:
             send(status="亲爱的亲爱的亲爱的旅行者！树脂已经溢出啦！", message=message)
         else:
             send(status="亲爱的亲爱的亲爱的旅行者！树脂快要溢出啦！", message=message)
-
+        log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
         time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
 
     # 半夜委托没做完时
@@ -45,8 +46,9 @@ def main() -> None:
         time2 = time.localtime()
         if(time2.tm_hour == time1.tm_hour and time2.tm_min >= time1.tm_min or time2.tm_hour > time1.tm_hour and time2.tm_min < time1.tm_min):
             send(status="亲爱的亲爱的亲爱的旅行者！你今日的委托还没有完成哦~", message=message)
-            
+            log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
+    log.info(f'本轮运行结束，休眠{config.SLEEP_TIME}秒')
     time.sleep(config.SLEEP_TIME)
 
 # for qqbot

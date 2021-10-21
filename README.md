@@ -35,6 +35,20 @@
 * 请确保米游社的实时便笺权限已经打开
 * 获取cookie
 
+### 1.Docker 运行
+
+1. 从本项目`alert/config_data/config.example.json`中提取配置文件并填写。
+
+2. 运行，`/PATH/config.json`是你本地配置文件的路径，需要根据实际情况填写。
+
+    ```sh
+    docker run -d \
+    --name=genshin-alert \
+    -v /PATH/config.json:/app/alert/config_data/config.json \
+    xm798/genshin-alert:latest
+    ```
+
+### 2.本地运行
 0. 安装 [python3](https://www.python.org) 环境，版本>=3.9。
 
     如果你的服务器已经有了较低版本的 python 环境，此处以 Centos 为例：
