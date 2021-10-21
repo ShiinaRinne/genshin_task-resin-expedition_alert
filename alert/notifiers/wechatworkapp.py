@@ -25,7 +25,7 @@ class WechatWorkApp(Base):
                 if retcode == 0:
                     return response['access_token']
                 else:
-                    log.error(_('Failed to get access_token:\n{response}'))
+                    log.error('Failed to get access_token:\n{response}')
                     return
         else:
             return
