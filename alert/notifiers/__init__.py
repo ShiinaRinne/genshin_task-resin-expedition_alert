@@ -42,4 +42,9 @@ def get_notifier(name=None):
 
 def send2all(text='',status:str='',desp:str=''):
     for notifier in _all_notifiers:
-        get_notifier(notifier).send(text, status, desp)
+        # 不支持 MARKDOWN 语法的推送渠道不做处理
+        if (notifier in ['pushpuls','serverchan','serverchanturbo']):
+            markdown_message = f'```{desp}'
+        else:
+            markdown_message = desp
+        get_notifier(notifier).send(text, status, markdown_message)

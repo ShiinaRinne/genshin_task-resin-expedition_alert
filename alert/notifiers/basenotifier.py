@@ -48,3 +48,6 @@ class BaseNotifier(object):
                 raise NotificationError(f'{self.name} 😳\nTG_BOT_TOKEN 错误')
             else:
                 raise NotificationError(f'{self.name} 😳\n{response}')
+        #一个推送渠道失败后不会继续进行推送
+        finally:
+            return
