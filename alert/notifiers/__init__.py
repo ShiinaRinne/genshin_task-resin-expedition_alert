@@ -7,7 +7,9 @@ from . import (
     serverchanturbo,
     telegrambot,
     wechatworkapp,
-    wechatworkbot, )
+    wechatworkbot,
+    coolpush,
+    qmsg, )
 
 from .exceptions import NoSuchNotifierError
 
@@ -23,6 +25,8 @@ _all_notifiers = {
     'telegrambot': telegrambot.TelegramBot,
     'wechatworkapp': wechatworkapp.WechatWorkApp,
     'wechatworkbot': wechatworkbot.WechatWorkBot,
+    'coolpush': coolpush.CoolPush,
+    'qmsg': qmsg.Qmsg,
 }
 
 
@@ -38,6 +42,11 @@ def get_notifier(name=None):
     return _all_notifiers[notifier[0][1]]()
 
 
-def send2all(text='from ym',status:str='',desp:str=''):
+def send2all(text='',status:str='',desp:str=''):
     for notifier in _all_notifiers:
-        get_notifier(notifier).send(text, status, desp)
+        # 不支持 MARKDOWN 语法的推送渠道不做处理
+        if (notifier in ['pushpuls','serverchan','serverchanturbo']):
+            markdown_message = f'```{desp}'
+        else:
+            markdown_message = desp
+        get_notifier(notifier).send(text, status, markdown_message)

@@ -11,10 +11,8 @@ from .getinfo.receivedata import receive_data
 def send(status:str,message:str) -> None:
     # message_box = '\n'.join(message)
 
-    # The ``` is added to use markdown code block
-    markdown_message = f'```\n{message}'
     try:
-        notifiers.send2all(status=status, desp=markdown_message)
+        notifiers.send2all(status=status, desp=message)
     except Exception as e:
         print(e)
 

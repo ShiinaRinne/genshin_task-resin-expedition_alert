@@ -23,6 +23,10 @@
 
 ![](https://i.loli.net/2021/10/19/P5RLCksmBUfOyJo.png)
 
+**CoolPush**
+
+![](https://i.loli.net/2021/10/21/QpK1Mi3VdwsDml5.png)
+
 **QQ**
 
 ![](https://youngmoe.com/img/hoyolab_resin/7.png)
@@ -74,6 +78,8 @@
 | [钉钉群机器人](https://developers.dingtalk.com/document/robots/custom-robot-access?spm=ding_open_doc.document.0.0.7f875e594zPr9w#topic-2026027) | ✅支持    |                   |
 | [pushplus](https://www.pushplus.plus/) | ✅支持    |                   |
 | [Telegram Bot](https://core.telegram.org/bots) | ✅支持    |                   |
+| [Cool Push](https://cp.xuthus.cc/) | ✅支持    |  推荐私有化部署  |
+| [Qmsg酱](https://qmsg.zendee.cn/) | ✅支持    |                   |
 | QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
@@ -144,7 +150,30 @@
 2. 若要一对多推送，需要创建群组并将群组编号填入 `PUSH_PLUS_USER`，一对一推送无需填写。
 </details>
 
-### 5. QQBot
+
+### 5. CoolPush 酷推
+<details>
+
+注：现在酷推公共服务不可用，需要私有化部署。
+
+1. 登录 [CoolPush](https://cp.xuthus.cc/)，绑定QQ号/QQ群及私有化部署地址，获取`调用代码Skey`。
+
+2. 将Skey填入 `COOL_PUSH_SKEY` ，`COOL_PUSH_MODE` 支持QQ私聊推送/QQ群消息推送/QQ私有化私聊推送/QQ私有化群聊推送，不支持一对多推送。
+
+3. 如果需要动态的指定推送消息给特定的QQ号或者群，将QQ号/群号填入 `COOL_PUSH_SENDID` 即可。
+
+</details>
+
+### 6. Qmsg酱
+<details>
+
+登录 [Qmsg酱](https://qmsg.zendee.cn/)，获取 KEY 填入 `QMSG_KEY` 即可。
+
+注：Qmsg酱容易被判定违规=_=，且无法进行群聊推送（审核不通过）。
+
+</details>
+
+### 7. QQBot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
 
 
@@ -201,33 +230,39 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 ## 配置文件参数说明
 
+建议使用 [VS Code](https://code.visualstudio.com/) 或其他支持 json-schema 的编辑器编辑配置文件，可自动显示填写提示和进行配置检查。
+
 | Key                      |                      Comment                       |       Remark        |
 | ------------------------ | :------------------------------------------------: | :------------------: |
 | UID                      |                      游戏uid                       |      100088888       |
 | COOKIE                   |                    米游社cookie                    |         ****         |
-| SCTKEY                   |                   Server酱                     |     SCT********          |
+| SCTKEY                   |                   Server酱                         |     SCT********          |
 | WW_ID                    |                     企业微信id                     |                    |
 | WW_APP_SECRET            |                   企业微信secret                   |                    |
 | WW_APP_USERID            |              企业微信接收消息的用户id              |                    |
 | WW_APP_AGENTID           |                     企业应用Id                     |       10000001       |
 | WW_BOT_KEY               |                 企业微信机器人key                  |               |
-| DD_BOT_TOKEN             |              钉钉机器人 access_token                 |                |
-| DD_BOT_SECRET            |                   钉钉机器人加签密钥                |                |
-| PUSH_PLUS_TOKEN          |                PushPlus推送token                  |                  |
+| DD_BOT_TOKEN             |              钉钉机器人 access_token               |                |
+| DD_BOT_SECRET            |                   钉钉机器人加签密钥               |                |
+| PUSH_PLUS_TOKEN          |                PushPlus推送token                   |                  |
 | PUSH_PLUS_USER           |               PushPlus一对多推送群组id             |        不填则为一对一推送        |
-| DISCORD_WEBHOOK          |                       未测试                       |        未测试        |
-| IGOT_KEY                 |                       未测试                       |        未测试        |
 | TG_BOT_API               |                  Telegram API接口                  |    api.telegram.org    |
 | TG_BOT_TOKEN             |                Telegram Bot token                  |                   |
-| TG_USER_ID               |                  接收消息账号的userid               | 可用[@userinfobot](https://t.me/userinfobot)获取 |
+| TG_USER_ID               |                  接收消息账号的userid              | 可用[@userinfobot](https://t.me/userinfobot)获取 |
+| COOL_PUSH_SKEY           |                      酷推SKEY                      |                   |
+| COOL_PUSH_MODE           |                   酷推推送模式                     | send/psend/group/pgroup |
+| COOL_PUSH_SENDID         |                  酷推指定接收方QQ号/群号           |                          |
+| QMSG_KEY                 |                   Qmsg酱推送KEY                    |                      |
+| DISCORD_WEBHOOK          |                       未测试                       |        未测试        |
+| IGOT_KEY                 |                       未测试                       |        未测试        |
 | RESIN_ALERT_NUM          |               树脂达到多少时进行提示               |         150          |
 | RECEIVE_RESIN_DATA       |                是否接收树脂溢出提示                |          ON/OFF          |
-| RECEIVE_BOSS_COUNT       |          是否接收本周boss树脂减半剩余次数           |          ON/OFF          |
+| RECEIVE_BOSS_COUNT       |          是否接收本周boss树脂减半剩余次数          |          ON/OFF          |
 | RECEIVE_TASK_NUM         |                是否接收每日委托提示                |          ON/OFF          |
 | REVEIVE_EXPEDITION_NUM   |                是否接收探索派遣提示                |          ON/OFF          |
-| INCOMPLETE_ALERT         |      在这个时间，如果每日委托未完成，进行提示      | "213030"(即21:30:30) |
-| SELLP_TIME               | 程序每轮执行的休眠时间，为避免被封ip，建议稍微长点（单位：秒） |          60          |
-| ALERT_SUCCESS_SLEEP_TIME |    提示成功后的休眠时间，为避免扰民可以设置长点（单位：秒）    |         1800         |
+| INCOMPLETE_ALERT         |      在这个时间，如果每日委托未完成，进行提示      |    "213030"(即21:30:30)       |
+| SELLP_TIME               | 程序每轮执行的休眠时间，为避免被封ip，建议稍微长点（单位：秒） |          900          |
+| ALERT_SUCCESS_SLEEP_TIME |    提示成功后的休眠时间，为避免扰民可以设置长点（单位：秒）    |          1800         |
 
 
 

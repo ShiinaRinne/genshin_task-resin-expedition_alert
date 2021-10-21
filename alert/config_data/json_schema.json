@@ -1,0 +1,330 @@
+{
+  "$id": "http://example.com/example.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "additionalProperties": true,
+  "default": {},
+  "description": "Genshin-Alert 配置文件",
+  "properties": {
+    "ALERT_SUCCESS_SLEEP_TIME": {
+      "$id": "#/properties/ALERT_SUCCESS_SLEEP_TIME",
+      "default": 1800,
+      "description": "为避免频繁推送扰民可以设置长点（单位：秒）",
+      "examples": [
+        1800
+      ],
+      "title": "提示成功后的休眠时间",
+      "type": "integer"
+    },
+    "COOKIE": {
+      "$id": "#/properties/COOKIE",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "米游社 Cookie",
+      "type": "string"
+    },
+    "COOL_PUSH_MODE": {
+      "$id": "#/properties/COOL_PUSH_MODE",
+      "default": "",
+      "description": "支持\"send\",\"psend\",\"group\",\"pgroup\"。目前酷推仅私有部署可用。",
+      "examples": [
+        "psend"
+      ],
+      "title": "酷推发送模式",
+      "type": "string",
+      "pattern": "send|psend|group|pgroup"
+    },
+    "COOL_PUSH_SENDID": {
+      "$id": "#/properties/COOL_PUSH_SENDID",
+      "default": "",
+      "description": "发送模式为send/psend时为QQ号，发送模式为group/pgroup时为群号。",
+      "examples": [
+        ""
+      ],
+      "title": "酷推发送对象",
+      "type": "string"
+    },
+    "COOL_PUSH_SKEY": {
+      "$id": "#/properties/COOL_PUSH_SKEY",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "酷推SKEY",
+      "type": "string"
+    },
+    "DD_BOT_SECRET": {
+      "$id": "#/properties/DD_BOT_SECRET",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "钉钉机器人加签密钥",
+      "type": "string"
+    },
+    "DD_BOT_TOKEN": {
+      "$id": "#/properties/DD_BOT_TOKEN",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "钉钉机器人Token",
+      "type": "string"
+    },
+    "DISCORD_WEBHOOK": {
+      "$id": "#/properties/DISCORD_WEBHOOK",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "DISCORD_WEBHOOK",
+      "type": "string"
+    },
+    "IGOT_KEY": {
+      "$id": "#/properties/IGOT_KEY",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "IGOT_KEY",
+      "type": "string"
+    },
+    "INCOMPLETE_ALERT": {
+      "$id": "#/properties/INCOMPLETE_ALERT",
+      "default": "213030",
+      "description": "在这个时间，如果每日委托未完成，进行提示。\"213030\"，即21:30:30。",
+      "examples": [
+        "213030"
+      ],
+      "title": "每日委托未完成提醒时间",
+      "type": "string",
+      "pattern": "^\\d{6}$"
+    },
+    "PUSH_PLUS_TOKEN": {
+      "$id": "#/properties/PUSH_PLUS_TOKEN",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "Pushplus Token",
+      "type": "string"
+    },
+    "PUSH_PLUS_USER": {
+      "$id": "#/properties/PUSH_PLUS_USER",
+      "default": "",
+      "description": "Pushplus群发模式下的群组ID，一对一推送无需此字段",
+      "examples": [
+        ""
+      ],
+      "title": "Pushplus 发送对象",
+      "type": "string"
+    },
+    "QMSG_KEY": {
+      "$id": "#/properties/QMSG_KEY",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "QMSG的KEY",
+      "type": "string"
+    },
+    "RECEIVE_BOSS_COUNT": {
+      "$id": "#/properties/RECEIVE_BOSS_COUNT",
+      "default": "",
+      "description": "ON or OFF",
+      "examples": [
+        "ON"
+      ],
+      "title": "是否接收本周boss树脂减半剩余次数",
+      "type": "string",
+      "pattern" :"ON|OFF"
+    },
+    "RECEIVE_RESIN_DATA": {
+      "$id": "#/properties/RECEIVE_RESIN_DATA",
+      "default": "",
+      "description": "ON or OFF",
+      "examples": [
+        "ON"
+      ],
+      "title": "是否接收树脂溢出提示",
+      "type": "string",
+      "pattern" :"ON|OFF"
+    },
+    "RECEIVE_TASK_NUM": {
+      "$id": "#/properties/RECEIVE_TASK_NUM",
+      "default": "",
+      "description": "ON or OFF",
+      "examples": [
+        "ON"
+      ],
+      "title": "是否接收每日委托提示",
+      "type": "string",
+      "pattern" :"ON|OFF"
+    },
+    "RESIN_ALERT_NUM": {
+      "$id": "#/properties/RESIN_ALERT_NUM",
+      "default": 150,
+      "description": "",
+      "examples": [
+        150
+      ],
+      "title": "树脂达到多少时进行提示",
+      "type": "integer"
+    },
+    "REVEIVE_EXPEDITION_NUM": {
+      "$id": "#/properties/REVEIVE_EXPEDITION_NUM",
+      "default": "",
+      "description": "ON or OFF",
+      "examples": [
+        "ON"
+      ],
+      "title": "是否接收探索派遣提示",
+      "type": "string",
+      "pattern" :"ON|OFF"
+    },
+    "SCKEY": {
+      "$id": "#/properties/SCKEY",
+      "default": "",
+      "description": "已弃用，不推荐使用",
+      "examples": [
+        ""
+      ],
+      "title": "ServerChan旧版KEY",
+      "type": "string"
+    },
+    "SCTKEY": {
+      "$id": "#/properties/SCTKEY",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "ServerChan Turbo版KEY",
+      "type": "string"
+    },
+    "SLEEP_TIME": {
+      "$id": "#/properties/SLEEP_TIME",
+      "default": 900,
+      "description": "为避免被封ip，建议稍微长点（单位：秒），默认15分钟检查一次",
+      "examples": [
+        ""
+      ],
+      "title": "程序每轮执行的休眠时间",
+      "type": "integer"
+    },
+    "TG_BOT_API": {
+      "$id": "#/properties/TG_BOT_API",
+      "default": "api.telegram.org",
+      "description": "国内可自行搭建反代",
+      "examples": [
+        "api.telegram.org"
+      ],
+      "title": "Telegram BOT API地址",
+      "type": "string"
+    },
+    "TG_BOT_TOKEN": {
+      "$id": "#/properties/TG_BOT_TOKEN",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "Telegram Bot Token",
+      "type": "string"
+    },
+    "TG_USER_ID": {
+      "$id": "#/properties/TG_USER_ID",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "Telegram 接收用户的 userid",
+      "type": "string"
+    },
+    "UID": {
+      "$id": "#/properties/UID",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "原神UID",
+      "type": "string",
+      "pattern": "\\d{9}"
+    },
+    "WW_APP_AGENTID": {
+      "$id": "#/properties/WW_APP_AGENTID",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "企业微信应用Id",
+      "type": "string"
+    },
+    "WW_APP_SECRET": {
+      "$id": "#/properties/WW_APP_SECRET",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "企业微信Secret",
+      "type": "string"
+    },
+    "WW_APP_USERID": {
+      "$id": "#/properties/WW_APP_USERID",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "企业微信接收消息的用户id",
+      "type": "string"
+    },
+    "WW_BOT_KEY": {
+      "$id": "#/properties/WW_BOT_KEY",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "企业微信机器人Key",
+      "type": "string"
+    },
+    "WW_ID": {
+      "$id": "#/properties/WW_ID",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "企业微信id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "UID",
+    "COOKIE",
+    "RESIN_ALERT_NUM",
+    "RECEIVE_RESIN_DATA",
+    "RECEIVE_BOSS_COUNT",
+    "RECEIVE_TASK_NUM",
+    "REVEIVE_EXPEDITION_NUM",
+    "INCOMPLETE_ALERT",
+    "SLEEP_TIME",
+    "ALERT_SUCCESS_SLEEP_TIME"
+  ],
+  "title": "Genshin-Alert Config",
+  "type": "object"
+}
