@@ -8,7 +8,8 @@ from . import (
     telegrambot,
     wechatworkapp,
     wechatworkbot,
-    coolpush )
+    coolpush,
+    qmsg, )
 
 from .exceptions import NoSuchNotifierError
 
@@ -25,6 +26,7 @@ _all_notifiers = {
     'wechatworkapp': wechatworkapp.WechatWorkApp,
     'wechatworkbot': wechatworkbot.WechatWorkBot,
     'coolpush': coolpush.CoolPush,
+    'qmsg': qmsg.Qmsg,
 }
 
 

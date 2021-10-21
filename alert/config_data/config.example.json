@@ -1,9 +1,9 @@
 {
-  "UID":"",
+  "$schema": "./json_schema.json",
+  "UID": "",
   "COOKIE": "",
-
   "SCKEY": "",
-  "SCTKEY":"",
+  "SCTKEY": "",
   "WW_ID": "",
   "WW_APP_SECRET": "",
   "WW_APP_USERID": "",
@@ -19,15 +19,16 @@
   "TG_BOT_TOKEN": "",
   "TG_USER_ID": "",
   "COOL_PUSH_SKEY": "",
-  "COOL_PUSH_MODE": "send",
-  "COOL_PUSH_SENDID":"",
+  "COOL_PUSH_MODE": "psend",
+  "COOL_PUSH_SENDID": "",
+  "QMSG_KEY": "",
   
-  "RESIN_ALERT_NUM":"150",
-  "RECEIVE_RESIN_DATA":"ON",
-  "RECEIVE_BOSS_COUNT":"ON",
-  "RECEIVE_TASK_NUM":"ON",
-  "REVEIVE_EXPEDITION_NUM":"ON",
-  "INCOMPLETE_ALERT":"215959",
-  "SLEEP_TIME":60,
-  "ALERT_SUCCESS_SLEEP_TIME":1800
+  "RESIN_ALERT_NUM": 150,
+  "RECEIVE_RESIN_DATA": "ON",
+  "RECEIVE_BOSS_COUNT": "ON",
+  "RECEIVE_TASK_NUM": "ON",
+  "REVEIVE_EXPEDITION_NUM": "ON",
+  "INCOMPLETE_ALERT": "213030",
+  "SLEEP_TIME": 950,
+  "ALERT_SUCCESS_SLEEP_TIME": 1800
 }

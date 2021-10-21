@@ -67,6 +67,9 @@ class Config():
         self.config_data['PUSH_PLUS_TOKEN'] = self.get_config('PUSH_PLUS_TOKEN')
         self.config_data['PUSH_PLUS_USER'] = self.get_config('PUSH_PLUS_USER')
 
+        #QMSG酱
+        self.config_data['QMSG_KEY'] = self.get_config('QMSG_KEY')
+
         # Server Chan
         self.config_data['SCKEY'] = self.get_config('SCKEY')
         self.config_data['SCTKEY'] = self.get_config('SCTKEY')
