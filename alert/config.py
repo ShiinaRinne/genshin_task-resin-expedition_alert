@@ -30,21 +30,6 @@ class Config():
         self.config_data['COOKIE'] = self.get_config('COOKIE')
 
         # # Notifier configs
-        # # iOS Bark App
-        # self.BARK_KEY = self.config_json.get('BARK_KEY')
-        # if os.environ.get('BARK_KEY'):
-        #     # Customed server
-        #     if os.environ['BARK_KEY'].find(
-        #             'https') != -1 or os.environ['BARK_KEY'].find('http') != -1:
-        #         self.BARK_KEY = os.environ['BARK_KEY']
-        #     else:
-        #         self.BARK_KEY = f"https://api.day.app/{os.environ['BARK_KEY']}"
-        # # Official server
-        # elif self.BARK_KEY and self.BARK_KEY.find('https') == -1 and self.BARK_KEY.find('http') == -1:
-        #     self.BARK_KEY = f'https://api.day.app/{self.BARK_KEY}'
-
-        # self.BARK_SOUND = self.get_config('BARK_SOUND')
-
         # Cool Push
         self.config_data['COOL_PUSH_SKEY'] = self.get_config('COOL_PUSH_SKEY')
         self.config_data['COOL_PUSH_MODE'] = self.get_config('COOL_PUSH_MODE')
@@ -87,6 +72,9 @@ class Config():
 
         # WeChat Work Bot
         self.config_data['WW_BOT_KEY'] = self.get_config('WW_BOT_KEY')
+
+        # Bark
+        self.config_data['BARK_KEY'] = self.get_config('BARK_KEY')
 
         self.config = ConfigData.parse_obj(self.config_data)
 

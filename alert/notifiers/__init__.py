@@ -9,7 +9,8 @@ from . import (
     wechatworkapp,
     wechatworkbot,
     coolpush,
-    qmsg, )
+    qmsg,
+    bark )
 
 from .exceptions import NoSuchNotifierError
 
@@ -27,6 +28,7 @@ _all_notifiers = {
     'wechatworkbot': wechatworkbot.WechatWorkBot,
     'coolpush': coolpush.CoolPush,
     'qmsg': qmsg.Qmsg,
+    'bark':bark.Bark
 }
 
 
