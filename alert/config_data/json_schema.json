@@ -211,6 +211,16 @@
       "title": "ServerChan Turbo版KEY",
       "type": "string"
     },
+    "BARK_KEY": {
+      "$id": "#/properties/BARK_KEY",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "BARK App",
+      "type": "string"
+    },
     "SLEEP_TIME": {
       "$id": "#/properties/SLEEP_TIME",
       "default": 900,
