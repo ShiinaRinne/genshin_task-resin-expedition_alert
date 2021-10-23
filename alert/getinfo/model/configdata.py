@@ -8,6 +8,9 @@ class ConfigData(pydantic.BaseModel):
     SCKEY:str
     SCTKEY:str
     BARK_KEY:str
+    BARK_GROUP:str
+    BARK_ICON:str
+    BARK_ARCHIVE:str
     WW_ID: str
     WW_APP_SECRET: str
     WW_APP_USERID: str
