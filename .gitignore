@@ -4,3 +4,6 @@ __pycache__
 
 # Config
 config.json
+
+# IDE
+.vscode

@@ -75,6 +75,9 @@ class Config():
 
         # Bark
         self.config_data['BARK_KEY'] = self.get_config('BARK_KEY')
+        self.config_data['BARK_GROUP'] = self.get_config('BARK_GROUP')
+        self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
+        self.config_data['BARK_ARCHIVE'] = self.get_config('BARK_ARCHIVE')
 
         self.config = ConfigData.parse_obj(self.config_data)
 

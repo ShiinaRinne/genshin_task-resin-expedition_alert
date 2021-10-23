@@ -94,6 +94,7 @@
 | [Telegram Bot](https://core.telegram.org/bots) | ✅支持    |                   |
 | [Cool Push](https://cp.xuthus.cc/) | ✅支持    |  推荐私有化部署  |
 | [Qmsg酱](https://qmsg.zendee.cn/) | ✅支持    |                   |
+| [Bark](https://github.com/Finb/Bark) | ✅ 支持   |                     |
 | QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
@@ -187,7 +188,16 @@
 
 </details>
 
-### 7. QQBot
+### 7. Bark
+<details>
+
+1. 打开 [Bark](https://github.com/Finb/Bark) App，将 App 内提供的 KEY 填入 `BARK_KEY` 即可。
+
+2. 支持部分可选配置，如自定义消息分组 `BARK_GROUP`，自定义通知图标 `BARK_ICON`，自定义消息保存 `BARK_ARCHIVE`。
+
+</details>
+
+### 8. QQBot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
 
 
@@ -267,6 +277,10 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | COOL_PUSH_MODE           |                   酷推推送模式                     | send/psend/group/pgroup |
 | COOL_PUSH_SENDID         |                  酷推指定接收方QQ号/群号           |                          |
 | QMSG_KEY                 |                   Qmsg酱推送KEY                    |                      |
+| BARK_KEY                 |                   Bark App KEY                    |                      |
+| BARK_GROUP               |                  自定义 Bark 分组                   | 不填则使用默认分组 |
+| BARK_ICON                |                自定义 Bark 通知图标                 | 仅支持 Web URL 图片，不填则不使用自定义图标 |
+| BARK_ARCHIVE             |                  自定义 Bark 保存                   | 1 为保存，其他值为不保存，不填则使用默认规则 |
 | DISCORD_WEBHOOK          |                       未测试                       |        未测试        |
 | IGOT_KEY                 |                       未测试                       |        未测试        |
 | RESIN_ALERT_NUM          |               树脂达到多少时进行提示               |         150          |

@@ -218,7 +218,37 @@
       "examples": [
         ""
       ],
-      "title": "BARK App",
+      "title": "BARK App Key",
+      "type": "string"
+    },
+    "BARK_GROUP": {
+      "$id": "#/properties/BARK_GROUP",
+      "default": "",
+      "description": "不填则使用默认分组",
+      "examples": [
+        ""
+      ],
+      "title": "自定义 BARK 消息分组",
+      "type": "string"
+    },
+    "BARK_ICON": {
+      "$id": "#/properties/BARK_ICON",
+      "default": "",
+      "description": "需要填写URL，不填则不使用自定义图标",
+      "examples": [
+        ""
+      ],
+      "title": "自定义 BARK 通知图标",
+      "type": "string"
+    },
+    "BARK_ARCHIVE": {
+      "$id": "#/properties/BARK_ARCHIVE",
+      "default": "",
+      "description": "1 为保存，其他值为不保存，不填则使用默认规则",
+      "examples": [
+        ""
+      ],
+      "title": "设置 BARK 是否保存消息",
       "type": "string"
     },
     "SLEEP_TIME": {
