@@ -191,7 +191,19 @@
         "ON",
         "OFF"
       ],
-      "title": "是否接收探索派遣提示",
+      "title": "是否接收探索派遣信息",
+      "type": "string",
+      "pattern" :"ON|OFF"
+    },
+    "EXPEDITION_COMPLETE_ALERT": {
+      "$id": "#/properties/EXPEDITION_COMPLETE_ALERT",
+      "default": "",
+      "description": "ON or OFF",
+      "examples": [
+        "ON",
+        "OFF"
+      ],
+      "title": "是否接收探索派遣完成提醒",
       "type": "string",
       "pattern" :"ON|OFF"
     },

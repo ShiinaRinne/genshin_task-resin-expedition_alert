@@ -36,6 +36,7 @@ class ConfigData(pydantic.BaseModel):
     RECEIVE_BOSS_COUNT: Literal["ON","OFF"]
     RECEIVE_TASK_NUM: Literal["ON","OFF"]
     REVEIVE_EXPEDITION_NUM: Literal["ON","OFF"]
+    EXPEDITION_COMPLETE_ALERT: Literal["ON","OFF"]
     INCOMPLETE_ALERT: str 
     SLEEP_TIME: int 
     ALERT_SUCCESS_SLEEP_TIME:int

@@ -20,6 +20,7 @@ class Config():
         self.config_data['RECEIVE_BOSS_COUNT'] = self.get_config('RECEIVE_BOSS_COUNT')
         self.config_data['RECEIVE_TASK_NUM'] = self.get_config('RECEIVE_TASK_NUM')
         self.config_data['REVEIVE_EXPEDITION_NUM'] = self.get_config('REVEIVE_EXPEDITION_NUM')
+        self.config_data['EXPEDITION_COMPLETE_ALERT'] = self.get_config('EXPEDITION_COMPLETE_ALERT')
         self.config_data['INCOMPLETE_ALERT'] = self.get_config('INCOMPLETE_ALERT')
         self.config_data['SLEEP_TIME'] = self.get_config('SLEEP_TIME')
         self.config_data['ALERT_SUCCESS_SLEEP_TIME'] = self.get_config('ALERT_SUCCESS_SLEEP_TIME')
@@ -85,7 +86,7 @@ class Config():
     def get_config(self, name: str):
         value = os.environ[name] if os.environ.get(name) else self.config_json.get(name)
         if name == 'RESIN_ALERT_NUM' and not value:
-            value = '150'
+            value = 150
         elif name == 'RECEIVE_RESIN_DATA' and not value:
             value = "ON"
         elif name == 'RECEIVE_BOSS_COUNT' and not value:
@@ -96,6 +97,8 @@ class Config():
             value = "ON"
         elif name == 'INCOMPLETE_ALERT' and not value:
             value = "215959"
+        elif name == 'EXPEDITION_COMPLETE_ALERT' and not value:
+            value = "ON"
         elif name == 'SLEEP_TIME' and not value:
             value = 60
         elif name == 'ALERT_SUCCESS_SLEEP_TIME' and not value:
