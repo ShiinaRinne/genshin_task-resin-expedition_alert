@@ -18,9 +18,7 @@ def send(status:str,message:str) -> None:
         print(e)
 
 
-def main() -> None:
-    uid = config.UID
-    cookie = config.COOKIE
+def check(uid, cookie, name):
     try:
         base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
     except APIError:
@@ -28,17 +26,7 @@ def main() -> None:
         exit()
 
     result: str = receive_data(base_data)
-
     message = "\n".join(result)
-    # send(status="亲爱的亲爱的亲爱的旅行者！树脂快溢出啦！", message=message) # 调试用
-    # 树脂达到临界时
-    if(base_data.current_resin >= int(config.RESIN_ALERT_NUM)):
-        if(base_data.current_resin >= 160):
-            send(status="亲爱的亲爱的亲爱的旅行者！树脂已经溢出啦！", message=message)
-        else:
-            send(status="亲爱的亲爱的亲爱的旅行者！树脂快要溢出啦！", message=message)
-        log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
-        time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
 
     # 半夜委托没做完时
     if(config.INCOMPLETE_ALERT != "" and base_data.finished_task_num != 4):
@@ -46,10 +34,45 @@ def main() -> None:
         time2 = time.localtime()
         if(time2.tm_hour == time1.tm_hour and time2.tm_min >= time1.tm_min or time2.tm_hour > time1.tm_hour and time2.tm_min < time1.tm_min):
             send(status="亲爱的亲爱的亲爱的旅行者！你今日的委托还没有完成哦~", message=message)
+            alert_succeed = True
+            log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
+
+        else:
+            alert_succeed = False
+            log.info(f'今日委托未完成，未到提醒时间。')
+    else:
+        alert_succeed = False
+        log.info(f'委托检查结束，今日委托已完成。')
+
+    # 树脂达到临界时
+    if (not alert_succeed):
+        if(base_data.current_resin >= int(config.RESIN_ALERT_NUM)):
+            if(base_data.current_resin >= 160):
+                send(status="亲爱的亲爱的亲爱的旅行者！树脂已经溢出啦！", message=message)
+            else:
+                send(status="亲爱的亲爱的亲爱的旅行者！树脂快要溢出啦！", message=message)
+            alert_succeed = True
+            log.info(f'树脂已到临界值，提醒已发送。')
+        else:
+            alert_succeed = False
+
+    return alert_succeed
+
+def main() -> None:
+    uid = config.UID
+    cookie = config.COOKIE
+    name = config.NAME
+
+    while True:
+        alert_succeed = check(uid, cookie, name)
+
+        if alert_succeed :
             log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
-    log.info(f'本轮运行结束，休眠{config.SLEEP_TIME}秒')
-    time.sleep(config.SLEEP_TIME)
+        else:
+            log.info(f'本轮运行结束，休眠{config.SLEEP_TIME}秒')
+            time.sleep(config.SLEEP_TIME)
+
 
 # for qqbot
 def qqmessage()-> list[str]:

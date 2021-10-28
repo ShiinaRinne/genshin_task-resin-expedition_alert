@@ -142,7 +142,8 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON"
+        "ON",
+        "OFF"
       ],
       "title": "是否接收本周boss树脂减半剩余次数",
       "type": "string",
@@ -153,7 +154,8 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON"
+        "ON",
+        "OFF"
       ],
       "title": "是否接收树脂溢出提示",
       "type": "string",
@@ -164,7 +166,8 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON"
+        "ON",
+        "OFF"
       ],
       "title": "是否接收每日委托提示",
       "type": "string",
@@ -185,7 +188,8 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON"
+        "ON",
+        "OFF"
       ],
       "title": "是否接收探索派遣提示",
       "type": "string",
@@ -301,6 +305,18 @@
       "title": "原神UID",
       "type": "string",
       "pattern": "\\d{9}"
+    },
+    "NAME": {
+      "$id": "#/properties/NAME",
+      "default": "",
+      "description": "账号别名",
+      "examples": [
+        "小号",
+        "女朋友的号"
+      ],
+      "title": "账号别名",
+      "type": "string",
+      "pattern": ""
     },
     "WW_APP_AGENTID": {
       "$id": "#/properties/WW_APP_AGENTID",

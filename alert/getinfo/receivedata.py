@@ -8,7 +8,12 @@ def receive_data(base_data) -> list[str]:
     """
     result: list[str] = []
 
-    # current_resin
+    if (config.NAME):
+        result.append(f'账号：{config.NAME}')
+
+    hidden_uid = str(config.UID).replace(str(config.UID)[3:-3], '***', 1)
+    result.append(f'UID: {hidden_uid}\n')
+
     if config.RECEIVE_RESIN_DATA == "ON":
         result.append(get_resin_data(base_data))
 
