@@ -35,14 +35,13 @@ def check(uid, cookie, name):
         if(time2.tm_hour == time1.tm_hour and time2.tm_min >= time1.tm_min or time2.tm_hour > time1.tm_hour and time2.tm_min < time1.tm_min):
             send(status="亲爱的亲爱的亲爱的旅行者！你今日的委托还没有完成哦~", message=message)
             alert_succeed = True
-            log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
-
+            log.info('委托检查结束，提醒已发送。')
         else:
             alert_succeed = False
-            log.info(f'今日委托未完成，未到提醒时间。')
+            log.info('今日委托未完成，未到提醒时间。')
     else:
         alert_succeed = False
-        log.info(f'委托检查结束，今日委托已完成。')
+        log.info('委托检查结束，今日委托已完成。（或未配置委托未完成提醒）')
 
     # 树脂达到临界时
     if (not alert_succeed):
@@ -52,9 +51,22 @@ def check(uid, cookie, name):
             else:
                 send(status="亲爱的亲爱的亲爱的旅行者！树脂快要溢出啦！", message=message)
             alert_succeed = True
-            log.info(f'树脂已到临界值，提醒已发送。')
+            log.info('树脂已到临界值，提醒已发送。')
         else:
             alert_succeed = False
+            log.info('树脂检查结束，未到提醒临界值。')
+
+    if (not alert_succeed):
+        if(config.EXPEDITION_COMPLETE_ALERT):
+            if("已完成" in message):
+                send(status="亲爱的亲爱的亲爱的旅行者！探索派遣已经完成啦！", message=message)
+                alert_succeed = True
+                log.info('探索派遣已完成，提醒已发送。')
+            else:
+                alert_succeed = False
+                log.info('探索派遣检查结束，不存在完成的探索派遣。')
+        else:
+            log.info('不提醒探索派遣完成情况，跳过探索派遣检查。')
 
     return alert_succeed
 
@@ -67,7 +79,7 @@ def main() -> None:
         alert_succeed = check(uid, cookie, name)
 
         if alert_succeed :
-            log.info(f'提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
+            log.info(f'本轮运行结束，提醒已发送，休眠{config.ALERT_SUCCESS_SLEEP_TIME}秒')
             time.sleep(config.ALERT_SUCCESS_SLEEP_TIME)
         else:
             log.info(f'本轮运行结束，休眠{config.SLEEP_TIME}秒')

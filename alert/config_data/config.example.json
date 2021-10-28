@@ -1,6 +1,7 @@
 {
   "$schema": "./json_schema.json",
   "UID": "",
+  "NAME": "",
   "COOKIE": "",
   "SCKEY": "",
   "SCTKEY": "",
@@ -33,6 +34,7 @@
   "RECEIVE_TASK_NUM": "ON",
   "REVEIVE_EXPEDITION_NUM": "ON",
   "INCOMPLETE_ALERT": "213030",
-  "SLEEP_TIME": 950,
+  "EXPEDITION_COMPLETE_ALERT": "ON",
+  "SLEEP_TIME": 900,
   "ALERT_SUCCESS_SLEEP_TIME": 1800
 }
