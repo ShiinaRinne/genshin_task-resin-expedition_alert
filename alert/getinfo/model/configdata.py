@@ -4,6 +4,7 @@ import pydantic
 class ConfigData(pydantic.BaseModel):
     UID: str
     COOKIE:str
+    NAME:str
 
     SCKEY:str
     SCTKEY:str

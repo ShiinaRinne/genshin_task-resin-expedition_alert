@@ -297,6 +297,13 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 ## 自定义提示信息：
 #### 根据需要修改getinfo中dataanalystic.py与notifiers中的几个文件即可(近几天有空会优化一下，现在有点丑)
 
+## 更新日志
+
+### v1.1.0 (2021-10-28)
+
+修复休眠时间不正确的问题
+优化提醒逻辑
+增加账号信息显示
 
 ## 致谢
 - [Lycreal](https://github.com/Lycreal) 好看的米游社api调用

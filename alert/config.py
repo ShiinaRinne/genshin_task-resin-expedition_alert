@@ -26,6 +26,7 @@ class Config():
 
         # Cookie configs
         # Cookie from https://bbs.mihoyo.com/ys/
+        self.config_data['NAME'] = self.get_config('NAME')
         self.config_data['UID'] = self.get_config('UID')
         self.config_data['COOKIE'] = self.get_config('COOKIE')
 
