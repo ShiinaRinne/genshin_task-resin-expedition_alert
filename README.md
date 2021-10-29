@@ -37,14 +37,15 @@
 
 ### 1.Docker 运行
 
-1. 从本项目`alert/config_data/config.example.json`中提取配置文件并填写。
+1. 点击[链接](https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/config.example.json)或本项目路径`alert/config_data/config.example.json`提取示例配置文件并填写，重命名为`config.json`。
 
 2. 运行，`/PATH/config.json`是你本地配置文件的路径，需要根据实际情况填写。
 
     ```sh
     docker run -d \
-    --name=genshin-alert \
     -v /PATH/config.json:/app/alert/config_data/config.json \
+    --restart=always \
+    --name=genshin-alert \
     xm798/genshin-alert:latest
     ```
 
@@ -304,16 +305,21 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 ## 更新日志
 
+### v1.1.2（2021-10-29）
+
+- 增加cqhttp推送
+- 更新文档
+
 ### v1.1.1 (2021-10-28)
 
-增加探索派遣完成提醒
-优化提醒标题
+- 增加探索派遣完成提醒
+- 优化提醒标题
 
 ### v1.1.0 (2021-10-28)
 
-修复休眠时间不正确的问题
-优化提醒逻辑
-增加账号信息显示
+- 修复休眠时间不正确的问题
+- 优化提醒逻辑
+- 增加账号信息显示
 
 ## 致谢
 

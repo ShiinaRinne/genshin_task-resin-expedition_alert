@@ -407,7 +407,7 @@
       "examples": [
         ""
       ],
-      "title": "cqhttp的access_token,未设置不填",
+      "title": "cqhttp的access_token，未设置不填",
       "type": "string"
     }
   },
@@ -419,6 +419,7 @@
     "RECEIVE_BOSS_COUNT",
     "RECEIVE_TASK_NUM",
     "REVEIVE_EXPEDITION_NUM",
+    "EXPEDITION_COMPLETE_ALERT",
     "INCOMPLETE_ALERT",
     "SLEEP_TIME",
     "ALERT_SUCCESS_SLEEP_TIME"
