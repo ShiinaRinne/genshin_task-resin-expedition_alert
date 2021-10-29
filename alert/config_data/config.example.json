@@ -1,5 +1,5 @@
 {
-  "$schema": "./json_schema.json",
+  "$schema": "https://ghproxy.com/https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/config.example.json",
   "UID": "",
   "NAME": "",
   "COOKIE": "",
