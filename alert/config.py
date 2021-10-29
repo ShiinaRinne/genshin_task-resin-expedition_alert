@@ -81,6 +81,11 @@ class Config():
         self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
         self.config_data['BARK_ARCHIVE'] = self.get_config('BARK_ARCHIVE')
 
+        #cqhttp
+        self.config_data['CQHTTP_IP'] = self.get_config('CQHTTP_IP')
+        self.config_data['CQHTTP_TOKEN'] = self.get_config('CQHTTP_TOKEN')
+        self.config_data['CQHTTP_USER_ID'] = self.get_config('CQHTTP_USER_ID')
+
         self.config = ConfigData.parse_obj(self.config_data)
 
     def get_config(self, name: str):

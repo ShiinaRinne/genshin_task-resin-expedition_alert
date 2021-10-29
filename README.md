@@ -98,6 +98,7 @@
 | QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
+| [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) | ✅ 支持   |                     |
 | 自定义推送 | ❌暂不支持 |                   |
 
 
@@ -283,6 +284,9 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | BARK_ARCHIVE             |                  自定义 Bark 保存                  | 1 为保存，其他值为不保存，不填则使用默认规则 |
 | DISCORD_WEBHOOK          |                       未测试                       |        未测试        |
 | IGOT_KEY                 |                       未测试                       |        未测试        |
+| CQHTTP_IP                |                   cqhttp的ip地址                   |                       |
+| CQHTTP_USER_ID           |                  接收消息的qq号码                  |                       |
+| CQHTTP_TOKEN             |                   cqhttp的CQHTTP_TOKEN             |    未设置不需要填写    |
 | RESIN_ALERT_NUM          |               树脂达到多少时进行提示               |         150          |
 | RECEIVE_RESIN_DATA       |                是否接收树脂溢出提示                |        ON/OFF        |
 | RECEIVE_BOSS_COUNT       |          是否接收本周boss树脂减半剩余次数          |        ON/OFF        |
