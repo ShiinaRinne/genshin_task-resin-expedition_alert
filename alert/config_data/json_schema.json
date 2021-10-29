@@ -379,6 +379,36 @@
       ],
       "title": "企业微信id",
       "type": "string"
+    },
+    "CQHTTP_IP": {
+      "$id": "#/properties/CQHTTP_IP",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "cqhttp的ip",
+      "type": "string"
+    },
+    "CQHTTP_USER_ID": {
+      "$id": "#/properties/CQHTTP_USER_ID",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "推送的对象(qq号码)",
+      "type": "string"
+    },
+    "CQHTTP_TOKEN": {
+      "$id": "#/properties/CQHTTP_TOKEN",
+      "default": "",
+      "description": "",
+      "examples": [
+        ""
+      ],
+      "title": "cqhttp的access_token,未设置不填",
+      "type": "string"
     }
   },
   "required": [

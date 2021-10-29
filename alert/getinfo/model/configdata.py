@@ -30,6 +30,9 @@ class ConfigData(pydantic.BaseModel):
     COOL_PUSH_MODE: Literal["send","psend","group","pgroup"]
     COOL_PUSH_SENDID: str
     QMSG_KEY: str
+    CQHTTP_IP: str
+    CQHTTP_USER_ID: str
+    CQHTTP_TOKEN: str
 
     RESIN_ALERT_NUM: int
     RECEIVE_RESIN_DATA: Literal["ON","OFF"]
