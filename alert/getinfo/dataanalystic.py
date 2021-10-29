@@ -11,7 +11,7 @@ def seconds2hours(seconds: int) -> str:
 def get_resin_data(base_data: BaseData) -> str:
     current_resin: str = f"{base_data.current_resin}/{base_data.max_resin}"
     resin_data = f"当前树脂：{current_resin}\n"
-    if(base_data.current_resin != 160):
+    if(base_data.current_resin < 160):
         resin_recovery_time = seconds2hours(base_data.resin_recovery_time)
         next_resin_rec_time = seconds2hours(
             8 * 60 - ((base_data.max_resin - base_data.current_resin) * 8 * 60 - base_data.resin_recovery_time))
