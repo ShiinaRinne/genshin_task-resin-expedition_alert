@@ -13,7 +13,7 @@ class BaseData(pydantic.BaseModel):
     current_expedition_num=5 当前派遣数量
     finished_task_num=0 完成的委托数量
     total_task_num=4 全部委托数量
-    is_extra_task_reward_received=False  额外委托？突发事件？不知道~
+    is_extra_task_reward_received=False 每日委托奖励是否领取
     max_expedition_num=5 最大派遣数量
 
     """
