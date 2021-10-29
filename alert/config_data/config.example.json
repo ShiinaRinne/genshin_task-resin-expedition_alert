@@ -27,6 +27,11 @@
   "COOL_PUSH_MODE": "psend",
   "COOL_PUSH_SENDID": "",
   "QMSG_KEY": "",
+  "CQHTTP_IP": "",
+  "CQHTTP_USER_ID": "",
+  "CQHTTP_TOKEN": "null",
+
+
   
   "RESIN_ALERT_NUM": 150,
   "RECEIVE_RESIN_DATA": "ON",
