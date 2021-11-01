@@ -27,10 +27,13 @@
     },
     "COOL_PUSH_MODE": {
       "$id": "#/properties/COOL_PUSH_MODE",
-      "default": "",
+      "default": "psend",
       "description": "支持\"send\",\"psend\",\"group\",\"pgroup\"。目前酷推仅私有部署可用。",
       "examples": [
-        "psend"
+        "send",
+        "psend",
+        "group",
+        "pgroup"
       ],
       "title": "酷推发送模式",
       "type": "string",
@@ -412,14 +415,34 @@
       "title": "cqhttp的ip",
       "type": "string"
     },
-    "CQHTTP_USER_ID": {
-      "$id": "#/properties/CQHTTP_USER_ID",
+    "CQHTTP_PORT": {
+      "$id": "#/properties/CQHTTP_PORT",
+      "default": 5700,
+      "description": "cqhttp的HTTP端口",
+      "examples": [],
+      "title": "cqhttp的HTTP端口",
+      "type": "integer"
+    },
+    "CQHTTP_MESSAGE_TYPE": {
+      "$id": "#/properties/CQHTTP_MESSAGE_TYPE",
+      "default": "",
+      "description": "private为私聊发送，group为群聊发送",
+      "examples": [
+        "private",
+        "group"
+      ],
+      "title": "cqhttp消息发送模式",
+      "type": "string",
+      "pattern": "private|group"
+    },
+    "CQHTTP_SEND_ID": {
+      "$id": "#/properties/CQHTTP_SEND_ID",
       "default": "",
       "description": "",
       "examples": [
         ""
       ],
-      "title": "推送的对象(qq号码)",
+      "title": "推送的对象(QQ号码/群号码)",
       "type": "string"
     },
     "CQHTTP_TOKEN": {
@@ -429,7 +452,7 @@
       "examples": [
         ""
       ],
-      "title": "cqhttp的access_token，未设置不填",
+      "title": "cqhttp的access_token，未设置则不填",
       "type": "string"
     }
   },

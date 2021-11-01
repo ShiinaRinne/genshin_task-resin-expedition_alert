@@ -32,7 +32,9 @@ class ConfigData(pydantic.BaseModel):
     COOL_PUSH_SENDID: Optional[str] = ""
     QMSG_KEY: Optional[str] = ""
     CQHTTP_IP: Optional[str] = ""
-    CQHTTP_USER_ID: Optional[str] = ""
+    CQHTTP_PORT: Optional[int] = 5700
+    CQHTTP_MESSAGE_TYPE: Literal["private", "group"] = ""
+    CQHTTP_SEND_ID: Optional[str] = ""
     CQHTTP_TOKEN: Optional[str] = ""
 
     RESIN_ALERT_NUM: int

@@ -28,8 +28,10 @@
   "COOL_PUSH_SENDID": "",
   "QMSG_KEY": "",
   "CQHTTP_IP": "",
-  "CQHTTP_USER_ID": "",
-  "CQHTTP_TOKEN": "null",
+  "CQHTTP_PORT": 5700,
+  "CQHTTP_MESSAGE_TYPE": "private",
+  "CQHTTP_SEND_ID": "",
+  "CQHTTP_TOKEN": "",
   
   "RESIN_ALERT_NUM": 150,
   "RECEIVE_RESIN_DATA": "ON",
