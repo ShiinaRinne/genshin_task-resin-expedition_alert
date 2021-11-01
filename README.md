@@ -96,10 +96,11 @@
 | [Cool Push](https://cp.xuthus.cc/) | ✅支持    |  推荐私有化部署  |
 | [Qmsg酱](https://qmsg.zendee.cn/) | ✅支持    |                   |
 | [Bark](https://github.com/Finb/Bark) | ✅ 支持   |                     |
+| [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) | ✅ 支持   |                     |
 | QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
-| [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) | ✅ 支持   |                     |
+
 | 自定义推送 | ❌暂不支持 |                   |
 
 
@@ -198,7 +199,20 @@
 
 </details>
 
-### 8. QQBot
+### 8. CQ-HTTP
+<details>
+
+1. 将 CQ-HTTP 的服务器IP/域名填入 `CQHTTP_IP`，端口号填入 `CQHTTP_PORT`。
+
+2. 配置发送模式 `CQHTTP_MESSAGE_TYPE`，`private` 为私聊发送，`group` 为群聊发送。
+
+3. 配置消息接收方的QQ号/群号，填入 `CQHTTP_SEND_ID`，与发送模式匹配。
+
+4. 若配置了`Access Token`，需要填写 `CQHTTP_TOKEN`。
+
+</details>
+
+### 9. QQBot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
 
 
@@ -285,8 +299,10 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | BARK_ARCHIVE              |                  自定义 Bark 保存                  | 1 为保存，其他值为不保存，不填则使用默认规则 |
 | DISCORD_WEBHOOK           |                       未测试                       |        未测试        |
 | IGOT_KEY                  |                       未测试                       |        未测试        |
-| CQHTTP_IP                 |                   cqhttp的ip地址                   |                      |
-| CQHTTP_USER_ID            |                  接收消息的qq号码                  |                      |
+| CQHTTP_IP                 |                  cq-http的ip地址                   |                      |
+| CQHTTP_PORT               |                  cq-http的HTTP端口号               |       默认5700       |
+| CQHTTP_MESSAGE_TYPE       |    cq-http的消息发送方式，`private`为私聊，`group`为群聊 |  private/group |
+| CQHTTP_SEND_ID            |               接收消息的qq号码/群号码              |                      |
 | CQHTTP_TOKEN              |                 cqhttp的CQHTTP_TOKEN               |    未设置不需要填写  |
 | RESIN_ALERT_NUM           |               树脂达到多少时进行提示               |         150          |
 | RECEIVE_RESIN_DATA        |                是否接收树脂溢出提示                |        ON/OFF        |
@@ -297,8 +313,8 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | EXPEDITION_COMPLETE_ALERT |              当探索派遣完成时发送提醒              |        ON/OFF        |
 | SELLP_TIME                | 程序每轮执行的休眠时间，为避免被封ip，建议稍微长点（单位：秒） |   900    |
 | ALERT_SUCCESS_SLEEP_TIME  |    提示成功后的休眠时间，为避免扰民可以设置长点（单位：秒）    |   1800   |
-| SLEEP_START_TIME          |       休眠开始时间，避免深夜扰民，与SLEEP_END_TIME配合使用     | "230000"(即23:00:00) |
-| SLEEP_END_TIME            |        休眠结束时间，与SLEEP_START_TIME配合使用    | "080000"(即08:00:00) |
+| SLEEP_START_TIME          |       休眠开始时间，避免深夜扰民，与`SLEEP_END_TIME`配合使用   | "230000"(即23:00:00) |
+| SLEEP_END_TIME            |        休眠结束时间，与`SLEEP_START_TIME`配合使用    | "080000"(即08:00:00) |
 
 
 ## 自定义提示信息：
@@ -306,7 +322,15 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 ## 更新日志
 
-### v1.2.0 (2021-11-1)
+### v.1.21（2021-11-01）
+
+修复 CQ-HTTP 推送，请使用 CQ-HTTP 的用户注意**配置文件字段变动**。
+
+- 修复鉴权错误，解决需要鉴权的 CQ-HTTP 不能使用的问题
+- 增加群推送模式支持
+- 增加自定义端口支持
+
+### v1.2.0 (2021-11-01)
 
 - 支持夜间休眠，再也不会深夜不停扰民了
 - 日志增加每轮检查树脂值显示

@@ -85,8 +85,10 @@ class Config():
 
         #cqhttp
         self.config_data['CQHTTP_IP'] = self.get_config('CQHTTP_IP')
+        self.config_data['CQHTTP_PORT'] = self.get_config('CQHTTP_PORT')
+        self.config_data['CQHTTP_MESSAGE_TYPE'] = self.get_config('CQHTTP_MESSAGE_TYPE')
+        self.config_data['CQHTTP_SEND_ID'] = self.get_config('CQHTTP_SEND_ID')
         self.config_data['CQHTTP_TOKEN'] = self.get_config('CQHTTP_TOKEN')
-        self.config_data['CQHTTP_USER_ID'] = self.get_config('CQHTTP_USER_ID')
 
         self.config = ConfigData.parse_obj(self.config_data)
 
