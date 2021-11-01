@@ -24,6 +24,8 @@ class Config():
         self.config_data['INCOMPLETE_ALERT'] = self.get_config('INCOMPLETE_ALERT')
         self.config_data['SLEEP_TIME'] = self.get_config('SLEEP_TIME')
         self.config_data['ALERT_SUCCESS_SLEEP_TIME'] = self.get_config('ALERT_SUCCESS_SLEEP_TIME')
+        self.config_data['SLEEP_START_TIME'] = self.get_config('SLEEP_START_TIME')
+        self.config_data['SLEEP_END_TIME'] = self.get_config('SLEEP_END_TIME')
 
         # Cookie configs
         # Cookie from https://bbs.mihoyo.com/ys/
@@ -105,7 +107,7 @@ class Config():
         elif name == 'EXPEDITION_COMPLETE_ALERT' and not value:
             value = "ON"
         elif name == 'SLEEP_TIME' and not value:
-            value = 60
+            value = 900
         elif name == 'ALERT_SUCCESS_SLEEP_TIME' and not value:
             value = 1800
 

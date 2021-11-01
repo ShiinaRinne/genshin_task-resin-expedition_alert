@@ -105,7 +105,29 @@
       ],
       "title": "每日委托未完成提醒时间",
       "type": "string",
-      "pattern": "^\\d{6}$"
+      "pattern": "([0-1][0-9]|2[0-3])([0-5][0-9])([0-5][0-9])"
+    },
+    "SLEEP_START_TIME": {
+      "$id": "#/properties/SLEEP_START_TIME",
+      "default": "230000",
+      "description": "休眠状态开始时间，\"230000\"，即23:00:00。",
+      "examples": [
+        "230000"
+      ],
+      "title": "休眠状态开始时间",
+      "type": "string",
+      "pattern": "([0-1][0-9]|2[0-3])([0-5][0-9])([0-5][0-9])"
+    },
+    "SLEEP_END_TIME": {
+      "$id": "#/properties/SLEEP_END_TIME",
+      "default": "080000",
+      "description": "休眠状态结束时间，\"080000\"，即08:00:00。",
+      "examples": [
+        "080000"
+      ],
+      "title": "休眠状态结束时间",
+      "type": "string",
+      "pattern": "([0-1][0-9]|2[0-3])([0-5][0-9])([0-5][0-9])"
     },
     "PUSH_PLUS_TOKEN": {
       "$id": "#/properties/PUSH_PLUS_TOKEN",
