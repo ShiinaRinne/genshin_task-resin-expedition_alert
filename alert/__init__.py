@@ -33,21 +33,26 @@ def check(uid, cookie):
 
     # 半夜委托没做完时
     if (config.INCOMPLETE_ALERT):
-        if (base_data.finished_task_num != 4):
-            time1 = time.strptime(config.INCOMPLETE_ALERT, '%H%M%S')
-            time2 = time.localtime()
-            if(time2.tm_hour == time1.tm_hour and time2.tm_min >= time1.tm_min or time2.tm_hour > time1.tm_hour and time2.tm_min < time1.tm_min):
-                status = "你今日的委托还没有完成哦~"
-                alert_task = True
-                log.info('今日委托未完成，发送提醒。')
-            else:
+        alert_time = datetime.datetime.strptime(config.INCOMPLETE_ALERT, "%H%M%S") + datetime.timedelta(hours=-4)
+        now = datetime.datetime.now() + datetime.timedelta(hours=-4)
+        if now.time() > alert_time.time():
+            if ("奖励未领取" in message):
+                if (base_data.finished_task_num != 4):
+                        status = "你今日的委托还没有完成哦~"
+                        alert_task = True
+                        log.info('今日委托未完成，发送提醒。')
+                else:
+                    alert_task = True
+                    status = "你今日的委托奖励还没有领取哦~"
+                    log.info('今日委托已完成，奖励未领取，发送提醒。')
+            elif ("奖励已领取" in message):
                 alert_task = False
-                log.info('今日委托未完成，未到提醒时间。')
+                log.info('委托检查结束，今日委托已完成，奖励已领取。')
         else:
             alert_task = False
-            log.info('委托检查结束，今日委托已完成。')
-    else :
-        log.info('未配置每日委托未完成提醒，已跳过。')
+            log.info('未到每日委托检查提醒时间。')
+    else:
+        log.info('未配置每日委托检查，已跳过。')
 
     # 树脂达到临界时
     if(base_data.current_resin >= int(config.RESIN_ALERT_NUM)):
