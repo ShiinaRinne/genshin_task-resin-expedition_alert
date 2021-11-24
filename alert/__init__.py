@@ -23,7 +23,7 @@ def check(uid, cookie):
     try:
         base_data: BaseData = MysAPI(uid, cookie).get_dailyNote()
     except APIError:
-        send(status="error", message="发生错误，请检查cookie与id是否对应或是否已开启米游社实时便笺功能。")
+        send(text='',status="error", message="发生错误，请检查cookie与id是否对应或是否已开启米游社实时便笺功能。")
         exit()
 
     result: str = receive_data(base_data)
