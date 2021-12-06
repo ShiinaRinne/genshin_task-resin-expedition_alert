@@ -20,31 +20,20 @@ class Config():
         self.config_data['RECEIVE_BOSS_COUNT'] = self.get_config('RECEIVE_BOSS_COUNT')
         self.config_data['RECEIVE_TASK_NUM'] = self.get_config('RECEIVE_TASK_NUM')
         self.config_data['REVEIVE_EXPEDITION_NUM'] = self.get_config('REVEIVE_EXPEDITION_NUM')
+        self.config_data['EXPEDITION_COMPLETE_ALERT'] = self.get_config('EXPEDITION_COMPLETE_ALERT')
         self.config_data['INCOMPLETE_ALERT'] = self.get_config('INCOMPLETE_ALERT')
         self.config_data['SLEEP_TIME'] = self.get_config('SLEEP_TIME')
         self.config_data['ALERT_SUCCESS_SLEEP_TIME'] = self.get_config('ALERT_SUCCESS_SLEEP_TIME')
+        self.config_data['SLEEP_START_TIME'] = self.get_config('SLEEP_START_TIME')
+        self.config_data['SLEEP_END_TIME'] = self.get_config('SLEEP_END_TIME')
 
         # Cookie configs
         # Cookie from https://bbs.mihoyo.com/ys/
+        self.config_data['NAME'] = self.get_config('NAME')
         self.config_data['UID'] = self.get_config('UID')
         self.config_data['COOKIE'] = self.get_config('COOKIE')
 
         # # Notifier configs
-        # # iOS Bark App
-        # self.BARK_KEY = self.config_json.get('BARK_KEY')
-        # if os.environ.get('BARK_KEY'):
-        #     # Customed server
-        #     if os.environ['BARK_KEY'].find(
-        #             'https') != -1 or os.environ['BARK_KEY'].find('http') != -1:
-        #         self.BARK_KEY = os.environ['BARK_KEY']
-        #     else:
-        #         self.BARK_KEY = f"https://api.day.app/{os.environ['BARK_KEY']}"
-        # # Official server
-        # elif self.BARK_KEY and self.BARK_KEY.find('https') == -1 and self.BARK_KEY.find('http') == -1:
-        #     self.BARK_KEY = f'https://api.day.app/{self.BARK_KEY}'
-
-        # self.BARK_SOUND = self.get_config('BARK_SOUND')
-
         # Cool Push
         self.config_data['COOL_PUSH_SKEY'] = self.get_config('COOL_PUSH_SKEY')
         self.config_data['COOL_PUSH_MODE'] = self.get_config('COOL_PUSH_MODE')
@@ -88,12 +77,25 @@ class Config():
         # WeChat Work Bot
         self.config_data['WW_BOT_KEY'] = self.get_config('WW_BOT_KEY')
 
+        # Bark
+        self.config_data['BARK_KEY'] = self.get_config('BARK_KEY')
+        self.config_data['BARK_GROUP'] = self.get_config('BARK_GROUP')
+        self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
+        self.config_data['BARK_ARCHIVE'] = self.get_config('BARK_ARCHIVE')
+
+        #cqhttp
+        self.config_data['CQHTTP_IP'] = self.get_config('CQHTTP_IP')
+        self.config_data['CQHTTP_PORT'] = self.get_config('CQHTTP_PORT')
+        self.config_data['CQHTTP_MESSAGE_TYPE'] = self.get_config('CQHTTP_MESSAGE_TYPE')
+        self.config_data['CQHTTP_SEND_ID'] = self.get_config('CQHTTP_SEND_ID')
+        self.config_data['CQHTTP_TOKEN'] = self.get_config('CQHTTP_TOKEN')
+
         self.config = ConfigData.parse_obj(self.config_data)
 
     def get_config(self, name: str):
         value = os.environ[name] if os.environ.get(name) else self.config_json.get(name)
         if name == 'RESIN_ALERT_NUM' and not value:
-            value = '150'
+            value = 150
         elif name == 'RECEIVE_RESIN_DATA' and not value:
             value = "ON"
         elif name == 'RECEIVE_BOSS_COUNT' and not value:
@@ -104,8 +106,10 @@ class Config():
             value = "ON"
         elif name == 'INCOMPLETE_ALERT' and not value:
             value = "215959"
+        elif name == 'EXPEDITION_COMPLETE_ALERT' and not value:
+            value = "ON"
         elif name == 'SLEEP_TIME' and not value:
-            value = 60
+            value = 900
         elif name == 'ALERT_SUCCESS_SLEEP_TIME' and not value:
             value = 1800
 

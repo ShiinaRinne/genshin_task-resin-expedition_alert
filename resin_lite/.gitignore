@@ -7,4 +7,3 @@ config.json
 
 # IDE
 .vscode
-alert/config.py

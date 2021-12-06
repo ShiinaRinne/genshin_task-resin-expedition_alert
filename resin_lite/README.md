@@ -37,15 +37,14 @@
 
 ### 1.Docker 运行
 
-1. 点击[链接](https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/config.example.json)或本项目路径`alert/config_data/config.example.json`提取示例配置文件并填写，重命名为`config.json`。
+1. 从本项目`alert/config_data/config.example.json`中提取配置文件并填写。
 
 2. 运行，`/PATH/config.json`是你本地配置文件的路径，需要根据实际情况填写。
 
     ```sh
     docker run -d \
-    -v /PATH/config.json:/app/alert/config_data/config.json \
-    --restart=always \
     --name=genshin-alert \
+    -v /PATH/config.json:/app/alert/config_data/config.json \
     xm798/genshin-alert:latest
     ```
 
@@ -96,13 +95,12 @@
 | [Cool Push](https://cp.xuthus.cc/) | ✅支持    |  推荐私有化部署  |
 | [Qmsg酱](https://qmsg.zendee.cn/) | ✅支持    |                   |
 | [Bark](https://github.com/Finb/Bark) | ✅ 支持   |                     |
-| [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) | ✅ 支持   |                     |
 | QQ | ✅支持    | 基于 NoneBot2 |
 | [Discord_Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) | 🛠️未测试 |                   |
 | [IGOT](https://push.hellyw.com/doc/#/) | 🛠️未测试 |                   |
-
 | 自定义推送 | ❌暂不支持 |                   |
 
+<s> 以及代部署(咳咳会死的)</s>
 
 ### 0. 一些基础信息
 1. UID: 你游戏内的uid，填入config -> UID
@@ -199,20 +197,7 @@
 
 </details>
 
-### 8. CQ-HTTP
-<details>
-
-1. 将 CQ-HTTP 的服务器IP/域名填入 `CQHTTP_IP`，端口号填入 `CQHTTP_PORT`。
-
-2. 配置发送模式 `CQHTTP_MESSAGE_TYPE`，`private` 为私聊发送，`group` 为群聊发送。
-
-3. 配置消息接收方的QQ号/群号，填入 `CQHTTP_SEND_ID`，与发送模式匹配。
-
-4. 若配置了`Access Token`，需要填写 `CQHTTP_TOKEN`。
-
-</details>
-
-### 9. QQBot
+### 8. QQBot
 <summary>暂时只支持主动查询，只能在windows环境部署，输入/resin xxxx即可获取信息<br>目前支持的有:/resin 树脂/委托/boss/派遣/总览共5项</summary>
 
 
@@ -271,105 +256,49 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 建议使用 [VS Code](https://code.visualstudio.com/) 或其他支持 json-schema 的编辑器编辑配置文件，可自动显示填写提示和进行配置检查。
 
-| Key                       |                      Comment                       |       Remark         |
-| ------------------------- | :------------------------------------------------: | :------------------: |
-| UID                       |                      游戏uid                       |      100088888       |
-| COOKIE                    |                    米游社cookie                    |         ****         |
-| NAME                      |                      账号别名                      |    小号/女朋友的号   |
-| SCTKEY                    |                   Server酱                         |     SCT********      |
-| WW_ID                     |                     企业微信id                     |                      |
-| WW_APP_SECRET             |                   企业微信secret                   |                      |
-| WW_APP_USERID             |              企业微信接收消息的用户id              |                      |
-| WW_APP_AGENTID            |                     企业应用Id                     |       10000001       |
-| WW_BOT_KEY                |                 企业微信机器人key                  |                      |
-| DD_BOT_TOKEN              |              钉钉机器人 access_token               |                      |
-| DD_BOT_SECRET             |                   钉钉机器人加签密钥               |                      |
-| PUSH_PLUS_TOKEN           |                PushPlus推送token                   |                      |
-| PUSH_PLUS_USER            |               PushPlus一对多推送群组id             |  不填则为一对一推送  |
-| TG_BOT_API                |                  Telegram API接口                  |   api.telegram.org   |
-| TG_BOT_TOKEN              |                Telegram Bot token                  |                      |
-| TG_USER_ID                |                  接收消息账号的userid              | 可用[@userinfobot](https://t.me/userinfobot)获取 |
-| COOL_PUSH_SKEY            |                      酷推SKEY                      |                      |
-| COOL_PUSH_MODE            |                   酷推推送模式                     | send/psend/group/pgroup |
-| COOL_PUSH_SENDID          |                  酷推指定接收方QQ号/群号           |                      |
-| QMSG_KEY                  |                   Qmsg酱推送KEY                    |                      |
-| BARK_KEY                  |                   Bark App KEY                     |                      |
-| BARK_GROUP                |                  自定义 Bark 分组                  |  不填则使用默认分组  |
-| BARK_ICON                 |                自定义 Bark 通知图标                | 仅支持 Web URL 图片，不填则不使用自定义图标  |
-| BARK_ARCHIVE              |                  自定义 Bark 保存                  | 1 为保存，其他值为不保存，不填则使用默认规则 |
-| DISCORD_WEBHOOK           |                       未测试                       |        未测试        |
-| IGOT_KEY                  |                       未测试                       |        未测试        |
-| CQHTTP_IP                 |                  cq-http的ip地址                   |                      |
-| CQHTTP_PORT               |                  cq-http的HTTP端口号               |       默认5700       |
-| CQHTTP_MESSAGE_TYPE       |    cq-http的消息发送方式，`private`为私聊，`group`为群聊 |  private/group |
-| CQHTTP_SEND_ID            |               接收消息的qq号码/群号码              |                      |
-| CQHTTP_TOKEN              |                 cqhttp的CQHTTP_TOKEN               |    未设置不需要填写  |
-| RESIN_ALERT_NUM           |               树脂达到多少时进行提示               |         150          |
-| RECEIVE_RESIN_DATA        |                是否接收树脂溢出提示                |        ON/OFF        |
-| RECEIVE_BOSS_COUNT        |          是否接收本周boss树脂减半剩余次数          |        ON/OFF        |
-| RECEIVE_TASK_NUM          |                是否接收每日委托信息                |        ON/OFF        |
-| REVEIVE_EXPEDITION_NUM    |                是否接收探索派遣信息                |        ON/OFF        |
-| INCOMPLETE_ALERT          |      在这个时间，如果每日委托未完成，进行提示      | "213030"(即21:30:30) |
-| EXPEDITION_COMPLETE_ALERT |              当探索派遣完成时发送提醒              |        ON/OFF        |
-| SELLP_TIME                | 程序每轮执行的休眠时间，为避免被封ip，建议稍微长点（单位：秒） |   900    |
-| ALERT_SUCCESS_SLEEP_TIME  |    提示成功后的休眠时间，为避免扰民可以设置长点（单位：秒）    |   1800   |
-| SLEEP_START_TIME          |       休眠开始时间，避免深夜扰民，与`SLEEP_END_TIME`配合使用   | "230000"(即23:00:00) |
-| SLEEP_END_TIME            |        休眠结束时间，与`SLEEP_START_TIME`配合使用    | "080000"(即08:00:00) |
+| Key                      |                      Comment                       |       Remark        |
+| ------------------------ | :------------------------------------------------: | :------------------: |
+| UID                      |                      游戏uid                       |      100088888       |
+| COOKIE                   |                    米游社cookie                    |         ****         |
+| SCTKEY                   |                   Server酱                         |     SCT********          |
+| WW_ID                    |                     企业微信id                     |                    |
+| WW_APP_SECRET            |                   企业微信secret                   |                    |
+| WW_APP_USERID            |              企业微信接收消息的用户id              |                    |
+| WW_APP_AGENTID           |                     企业应用Id                     |       10000001       |
+| WW_BOT_KEY               |                 企业微信机器人key                  |               |
+| DD_BOT_TOKEN             |              钉钉机器人 access_token               |                |
+| DD_BOT_SECRET            |                   钉钉机器人加签密钥               |                |
+| PUSH_PLUS_TOKEN          |                PushPlus推送token                   |                  |
+| PUSH_PLUS_USER           |               PushPlus一对多推送群组id             |        不填则为一对一推送        |
+| TG_BOT_API               |                  Telegram API接口                  |    api.telegram.org    |
+| TG_BOT_TOKEN             |                Telegram Bot token                  |                   |
+| TG_USER_ID               |                  接收消息账号的userid              | 可用[@userinfobot](https://t.me/userinfobot)获取 |
+| COOL_PUSH_SKEY           |                      酷推SKEY                      |                   |
+| COOL_PUSH_MODE           |                   酷推推送模式                     | send/psend/group/pgroup |
+| COOL_PUSH_SENDID         |                  酷推指定接收方QQ号/群号           |                          |
+| QMSG_KEY                 |                   Qmsg酱推送KEY                    |                      |
+| BARK_KEY                 |                   Bark App KEY                    |                      |
+| BARK_GROUP               |                  自定义 Bark 分组                   | 不填则使用默认分组 |
+| BARK_ICON                |                自定义 Bark 通知图标                 | 仅支持 Web URL 图片，不填则不使用自定义图标 |
+| BARK_ARCHIVE             |                  自定义 Bark 保存                   | 1 为保存，其他值为不保存，不填则使用默认规则 |
+| DISCORD_WEBHOOK          |                       未测试                       |        未测试        |
+| IGOT_KEY                 |                       未测试                       |        未测试        |
+| RESIN_ALERT_NUM          |               树脂达到多少时进行提示               |         150          |
+| RECEIVE_RESIN_DATA       |                是否接收树脂溢出提示                |          ON/OFF          |
+| RECEIVE_BOSS_COUNT       |          是否接收本周boss树脂减半剩余次数          |          ON/OFF          |
+| RECEIVE_TASK_NUM         |                是否接收每日委托提示                |          ON/OFF          |
+| REVEIVE_EXPEDITION_NUM   |                是否接收探索派遣提示                |          ON/OFF          |
+| INCOMPLETE_ALERT         |      在这个时间，如果每日委托未完成，进行提示      |    "213030"(即21:30:30)       |
+| SELLP_TIME               | 程序每轮执行的休眠时间，为避免被封ip，建议稍微长点（单位：秒） |          900          |
+| ALERT_SUCCESS_SLEEP_TIME |    提示成功后的休眠时间，为避免扰民可以设置长点（单位：秒）    |          1800         |
+
 
 
 ## 自定义提示信息：
 #### 根据需要修改getinfo中dataanalystic.py与notifiers中的几个文件即可(近几天有空会优化一下，现在有点丑)
 
-## 更新日志
-
-### v1.2.4（2021-11-24）
-
-- BUG FIX：修复 cookie 出错时的异常退出问题
-
-### v1.2.3（2021-11-23）
-
-- CQHTTP 推送IP字段支持协议头，以支持 HTTPS
-
-### v1.2.2（2021-11-10）
-
-优化每日委托提醒
-
-- 优化提醒时间判断逻辑
-- 增加奖励领取情况判断，去他人世界做委托领取奖励后不再会被误认为未完成委托。
-
-### v1.2.1（2021-11-01）
-
-修复 CQ-HTTP 推送，请使用 CQ-HTTP 的用户注意**配置文件字段变动**。
-
-- 修复鉴权错误，解决需要鉴权的 CQ-HTTP 不能使用的问题
-- 增加群推送模式支持
-- 增加自定义端口支持
-
-### v1.2.0 (2021-11-01)
-
-- 支持夜间休眠，再也不会深夜不停扰民了
-- 日志增加每轮检查树脂值显示
-- 修复 cqhttp 推送错误提示
-- 配置文件部分字段改为可选配置
-
-### v1.1.2（2021-10-29）
-
-- 增加cqhttp推送
-- 更新文档
-
-### v1.1.1 (2021-10-28)
-
-- 增加探索派遣完成提醒
-- 优化提醒标题
-
-### v1.1.0 (2021-10-28)
-
-- 修复休眠时间不正确的问题
-- 优化提醒逻辑
-- 增加账号信息显示
 
 ## 致谢
-
 - [Lycreal](https://github.com/Lycreal) 好看的米游社api调用
 
 - [y1ndan](https://www.yindan.me/tutorial/genshin-impact-helper.html) notifiers 多渠道发送消息
@@ -379,7 +308,3 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 - [Mrs4s](https://github.com/Mrs4s) cqhttp客户端
 
 - [nonebot](https://github.com/nonebot/nonebot2) nonebot机器人框架
-
-## License
-
-[MIT](https://github.com/yaomeng0722/genshin_task-resin-expedition_alert/blob/master/LICENSE)

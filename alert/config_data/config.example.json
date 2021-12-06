@@ -1,9 +1,14 @@
 {
-  "$schema": "./json_schema.json",
+  "$schema": "https://ghproxy.com/https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/json_schema.json",
   "UID": "",
+  "NAME": "",
   "COOKIE": "",
   "SCKEY": "",
   "SCTKEY": "",
+  "BARK_KEY": "",
+  "BARK_GROUP": "",
+  "BARK_ICON": "",
+  "BARK_ARCHIVE": "",
   "WW_ID": "",
   "WW_APP_SECRET": "",
   "WW_APP_USERID": "",
@@ -22,6 +27,11 @@
   "COOL_PUSH_MODE": "psend",
   "COOL_PUSH_SENDID": "",
   "QMSG_KEY": "",
+  "CQHTTP_IP": "",
+  "CQHTTP_PORT": 5700,
+  "CQHTTP_MESSAGE_TYPE": "private",
+  "CQHTTP_SEND_ID": "",
+  "CQHTTP_TOKEN": "",
   
   "RESIN_ALERT_NUM": 150,
   "RECEIVE_RESIN_DATA": "ON",
@@ -29,6 +39,9 @@
   "RECEIVE_TASK_NUM": "ON",
   "REVEIVE_EXPEDITION_NUM": "ON",
   "INCOMPLETE_ALERT": "213030",
-  "SLEEP_TIME": 950,
-  "ALERT_SUCCESS_SLEEP_TIME": 1800
+  "EXPEDITION_COMPLETE_ALERT": "ON",
+  "SLEEP_TIME": 900,
+  "ALERT_SUCCESS_SLEEP_TIME": 1800,
+  "SLEEP_START_TIME": "",
+  "SLEEP_END_TIME": ""
 }

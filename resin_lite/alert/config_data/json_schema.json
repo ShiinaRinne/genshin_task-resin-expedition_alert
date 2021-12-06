@@ -27,13 +27,10 @@
     },
     "COOL_PUSH_MODE": {
       "$id": "#/properties/COOL_PUSH_MODE",
-      "default": "psend",
+      "default": "",
       "description": "支持\"send\",\"psend\",\"group\",\"pgroup\"。目前酷推仅私有部署可用。",
       "examples": [
-        "send",
-        "psend",
-        "group",
-        "pgroup"
+        "psend"
       ],
       "title": "酷推发送模式",
       "type": "string",
@@ -108,29 +105,7 @@
       ],
       "title": "每日委托未完成提醒时间",
       "type": "string",
-      "pattern": "([0-1][0-9]|2[0-3])([0-5][0-9])([0-5][0-9])"
-    },
-    "SLEEP_START_TIME": {
-      "$id": "#/properties/SLEEP_START_TIME",
-      "default": "230000",
-      "description": "休眠状态开始时间，\"230000\"，即23:00:00。",
-      "examples": [
-        "230000"
-      ],
-      "title": "休眠状态开始时间",
-      "type": "string",
-      "pattern": "([0-1][0-9]|2[0-3])([0-5][0-9])([0-5][0-9])"
-    },
-    "SLEEP_END_TIME": {
-      "$id": "#/properties/SLEEP_END_TIME",
-      "default": "080000",
-      "description": "休眠状态结束时间，\"080000\"，即08:00:00。",
-      "examples": [
-        "080000"
-      ],
-      "title": "休眠状态结束时间",
-      "type": "string",
-      "pattern": "([0-1][0-9]|2[0-3])([0-5][0-9])([0-5][0-9])"
+      "pattern": "^\\d{6}$"
     },
     "PUSH_PLUS_TOKEN": {
       "$id": "#/properties/PUSH_PLUS_TOKEN",
@@ -167,8 +142,7 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON",
-        "OFF"
+        "ON"
       ],
       "title": "是否接收本周boss树脂减半剩余次数",
       "type": "string",
@@ -179,8 +153,7 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON",
-        "OFF"
+        "ON"
       ],
       "title": "是否接收树脂溢出提示",
       "type": "string",
@@ -191,8 +164,7 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON",
-        "OFF"
+        "ON"
       ],
       "title": "是否接收每日委托提示",
       "type": "string",
@@ -213,22 +185,9 @@
       "default": "",
       "description": "ON or OFF",
       "examples": [
-        "ON",
-        "OFF"
+        "ON"
       ],
-      "title": "是否接收探索派遣信息",
-      "type": "string",
-      "pattern" :"ON|OFF"
-    },
-    "EXPEDITION_COMPLETE_ALERT": {
-      "$id": "#/properties/EXPEDITION_COMPLETE_ALERT",
-      "default": "",
-      "description": "ON or OFF",
-      "examples": [
-        "ON",
-        "OFF"
-      ],
-      "title": "是否接收探索派遣完成提醒",
+      "title": "是否接收探索派遣提示",
       "type": "string",
       "pattern" :"ON|OFF"
     },
@@ -343,18 +302,6 @@
       "type": "string",
       "pattern": "\\d{9}"
     },
-    "NAME": {
-      "$id": "#/properties/NAME",
-      "default": "",
-      "description": "账号别名",
-      "examples": [
-        "小号",
-        "女朋友的号"
-      ],
-      "title": "账号别名",
-      "type": "string",
-      "pattern": ""
-    },
     "WW_APP_AGENTID": {
       "$id": "#/properties/WW_APP_AGENTID",
       "default": "",
@@ -404,56 +351,6 @@
       ],
       "title": "企业微信id",
       "type": "string"
-    },
-    "CQHTTP_IP": {
-      "$id": "#/properties/CQHTTP_IP",
-      "default": "",
-      "description": "",
-      "examples": [
-        ""
-      ],
-      "title": "cqhttp的ip",
-      "type": "string"
-    },
-    "CQHTTP_PORT": {
-      "$id": "#/properties/CQHTTP_PORT",
-      "default": 5700,
-      "description": "cqhttp的HTTP端口",
-      "examples": [],
-      "title": "cqhttp的HTTP端口",
-      "type": "integer"
-    },
-    "CQHTTP_MESSAGE_TYPE": {
-      "$id": "#/properties/CQHTTP_MESSAGE_TYPE",
-      "default": "",
-      "description": "private为私聊发送，group为群聊发送",
-      "examples": [
-        "private",
-        "group"
-      ],
-      "title": "cqhttp消息发送模式",
-      "type": "string",
-      "pattern": "private|group"
-    },
-    "CQHTTP_SEND_ID": {
-      "$id": "#/properties/CQHTTP_SEND_ID",
-      "default": "",
-      "description": "",
-      "examples": [
-        ""
-      ],
-      "title": "推送的对象(QQ号码/群号码)",
-      "type": "string"
-    },
-    "CQHTTP_TOKEN": {
-      "$id": "#/properties/CQHTTP_TOKEN",
-      "default": "",
-      "description": "",
-      "examples": [
-        ""
-      ],
-      "title": "cqhttp的access_token，未设置则不填",
-      "type": "string"
     }
   },
   "required": [
@@ -464,7 +361,6 @@
     "RECEIVE_BOSS_COUNT",
     "RECEIVE_TASK_NUM",
     "REVEIVE_EXPEDITION_NUM",
-    "EXPEDITION_COMPLETE_ALERT",
     "INCOMPLETE_ALERT",
     "SLEEP_TIME",
     "ALERT_SUCCESS_SLEEP_TIME"

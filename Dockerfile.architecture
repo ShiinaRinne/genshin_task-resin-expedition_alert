@@ -4,7 +4,6 @@ ENV TZ=Asia/Shanghai
 WORKDIR /tmp
 COPY ./requirements.txt ./
 RUN adduser app -D \
-    && sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories \
     && apk add --no-cache tzdata \
     && pip install --no-cache-dir -r requirements.txt \
     && rm -rf /tmp/*
