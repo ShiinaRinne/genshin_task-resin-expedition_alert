@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+    genshin-task:
+        container_name: genshin-task-resin-expedition-alert
+        build: .
+        restart: always
