@@ -48,5 +48,5 @@ class MysAPI:
         return response.data
 
     def get_dailyNote(self) -> Dict:
-        url = 'https://api-takumi.mihoyo.com/game_record/app/genshin/api/dailyNote'
+        url = 'https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/dailyNote'
         return BaseData.parse_obj(self._request(url, params=self.body, cookie=self.cookie))
