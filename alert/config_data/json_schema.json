@@ -454,6 +454,28 @@
       ],
       "title": "cqhttp的access_token，未设置则不填",
       "type": "string"
+    },
+    "RECEIVE_HOMECOIN_ALERT": {
+      "$id": "#/properties/RECEIVE_HOMECOIN_ALERT",
+      "default": "ON",
+      "description": "ON or OFF",
+      "examples": [
+        ""
+      ],
+      "title": "是否接收洞天宝钱溢出提醒",
+      "type": "string",
+      "pattern" :"ON|OFF"
+    },
+    "RUN_ENV": {
+      "$id": "#/properties/RUN_ENV",
+      "default": "local",
+      "description": "cloud|local",
+      "examples": [
+        ""
+      ],
+      "title": "运行环境，国内云服务器使用'cloud'，本地运行使用'local'",
+      "type": "string",
+      "pattern" :"cloud|local"
     }
   },
   "required": [
@@ -467,7 +489,8 @@
     "EXPEDITION_COMPLETE_ALERT",
     "INCOMPLETE_ALERT",
     "SLEEP_TIME",
-    "ALERT_SUCCESS_SLEEP_TIME"
+    "ALERT_SUCCESS_SLEEP_TIME",
+    "RECEIVE_HOMECOIN_ALERT"
   ],
   "title": "Genshin-Alert Config",
   "type": "object"

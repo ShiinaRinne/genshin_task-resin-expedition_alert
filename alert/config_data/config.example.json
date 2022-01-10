@@ -1,5 +1,6 @@
 {
   "$schema": "https://ghproxy.com/https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/json_schema.json",
+  "RUN_ENV": "local",
   "UID": "",
   "NAME": "",
   "COOKIE": "",
@@ -37,6 +38,7 @@
   "RECEIVE_RESIN_DATA": "ON",
   "RECEIVE_BOSS_COUNT": "ON",
   "RECEIVE_TASK_NUM": "ON",
+  "RECEIVE_HOMECOIN_ALERT":"ON",
   "REVEIVE_EXPEDITION_NUM": "ON",
   "INCOMPLETE_ALERT": "213030",
   "EXPEDITION_COMPLETE_ALERT": "ON",

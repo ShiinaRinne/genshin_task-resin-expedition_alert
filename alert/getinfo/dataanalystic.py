@@ -1,4 +1,5 @@
 from .model import BaseData
+import datetime
 import json
 import os
 
@@ -15,7 +16,9 @@ def get_resin_data(base_data: BaseData) -> str:
         resin_recovery_time = seconds2hours(base_data.resin_recovery_time)
         next_resin_rec_time = seconds2hours(
             8 * 60 - ((base_data.max_resin - base_data.current_resin) * 8 * 60 - base_data.resin_recovery_time))
-        resin_data += f"下个/全部树脂恢复时间：{next_resin_rec_time}/{resin_recovery_time}"
+        resin_data += f"下个/全部树脂恢复倒计时：{next_resin_rec_time}/{resin_recovery_time}\n"
+        overflow_time = datetime.datetime.now() + datetime.timedelta(seconds=base_data.resin_recovery_time)
+        resin_data += f"全部树脂恢复时间：{overflow_time.strftime('%a')} {overflow_time.strftime('%X')}"
     return resin_data
 
 
@@ -25,8 +28,13 @@ def get_resin_discount_data(base_data: BaseData) -> str:
 
 def get_task_num_data(base_data: BaseData) -> str:
     task_num: str = f"{base_data.finished_task_num}/{base_data.total_task_num}"
-    return f"今日完成委托数量：{task_num} 奖励{'已' if base_data.is_extra_task_reward_received else '未'}领取"
+    return f"今日完成委托数量：{task_num} 奖励{'已' if base_data.is_extra_task_reward_received else '未'}领取\n--------------------"
 
+def get_home_coin_data(base_data: BaseData) -> str:
+    coin_data = f"当前洞天宝钱/洞天宝钱上限：{base_data.current_home_coin}/{base_data.max_home_coin}\n"
+    home_coin_recovery_time = seconds2hours(base_data.home_coin_recovery_time)
+    coin_data += f"洞天宝钱溢出倒计时：{home_coin_recovery_time}\n--------------------"
+    return coin_data
 
 def get_expedition_data(base_data: BaseData) -> str:
     project_path = os.path.dirname(__file__)
