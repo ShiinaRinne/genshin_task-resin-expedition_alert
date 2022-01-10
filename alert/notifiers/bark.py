@@ -5,12 +5,13 @@ from ..config import config
 class Bark(Base):
     def __init__(self):
         self.name = 'Bark'
+        self.url = config.BARK_URL
         self.token = config.BARK_KEY
-        self.retcode_key = 'errno'
-        self.retcode_value = 0
+        self.retcode_key = 'code'
+        self.retcode_value = 200
 
     def send(self, text, status, desp):
-        url = f'https://api.day.app/{config.BARK_KEY}'
+        url = f'{config.BARK_URL}{config.BARK_KEY}'
         data = {
             'title': f'{text} {status}',
             'body': desp

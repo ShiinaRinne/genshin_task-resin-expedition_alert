@@ -275,11 +275,11 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 | Key                       |                      Comment                       |       Remark         |
 | ------------------------- | :------------------------------------------------: | :------------------: |
-| RUN_ENV                   |  运行环境，国内云服务商为'cloud'，其他使用'local',[Ref](https://github.com/Arondight/Adachi-BOT/issues/522) |     local/cloud      |
+| RUN_ENV                   |  运行环境，国内云服务商为`cloud`，其他使用`local`,[Ref](https://github.com/Arondight/Adachi-BOT/issues/522) |     local/cloud      |
 | UID                       |                      游戏uid                       |      100088888       |
 | COOKIE                    |                    米游社cookie                    |         ****         |
 | NAME                      |                      账号别名                      |    小号/女朋友的号   |
-| SCTKEY                    |                   Server酱                         |     SCT********      |
+| SCTKEY                    |                      Server酱                      |     SCT********      |
 | WW_ID                     |                     企业微信id                     |                      |
 | WW_APP_SECRET             |                   企业微信secret                   |                      |
 | WW_APP_USERID             |              企业微信接收消息的用户id              |                      |
@@ -296,6 +296,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | COOL_PUSH_MODE            |                   酷推推送模式                     | send/psend/group/pgroup |
 | COOL_PUSH_SENDID          |                  酷推指定接收方QQ号/群号           |                      |
 | QMSG_KEY                  |                   Qmsg酱推送KEY                    |                      |
+| BARK_URL                  |                   Bark 推送服务器                  | 默认为`https://api.day.app/`|
 | BARK_KEY                  |                   Bark App KEY                     |                      |
 | BARK_GROUP                |                  自定义 Bark 分组                  |  不填则使用默认分组  |
 | BARK_ICON                 |                自定义 Bark 通知图标                | 仅支持 Web URL 图片，不填则不使用自定义图标  |
@@ -322,6 +323,14 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 
 ## 更新日志
+### v1.3.1（2022-01-10）
+
+New Features:
+- 支持自定义 BARK 推送服务器
+
+Bug Fixes:
+- 修复 BARK 推送状态检测错误的问题
+
 ### v1.3.0（2022-01-10）
 
 新年新气象~

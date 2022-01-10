@@ -80,6 +80,7 @@ class Config():
         self.config_data['WW_BOT_KEY'] = self.get_config('WW_BOT_KEY')
 
         # Bark
+        self.config_data['BARK_URL'] = self.get_config('BARK_URL')
         self.config_data['BARK_KEY'] = self.get_config('BARK_KEY')
         self.config_data['BARK_GROUP'] = self.get_config('BARK_GROUP')
         self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
@@ -118,6 +119,9 @@ class Config():
             value = "OFF"
         elif name == 'RUN_ENV' and not value:
             value = "local"
+
+        elif name == 'BARK_URL' and not value:
+            value = "https://api.day.app/"
         return value
 
 config = Config().config

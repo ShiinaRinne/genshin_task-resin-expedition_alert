@@ -272,6 +272,16 @@
       "title": "自定义 BARK 消息分组",
       "type": "string"
     },
+    "BARK_URL": {
+      "$id": "#/properties/BARK_URL",
+      "default": "https://api.day.app/",
+      "description": "BARK 服务器，默认为https://api.day.app/",
+      "examples": [
+        ""
+      ],
+      "title": "BARK 服务器",
+      "type": "string"
+    },
     "BARK_ICON": {
       "$id": "#/properties/BARK_ICON",
       "default": "",

@@ -10,6 +10,7 @@ class ConfigData(pydantic.BaseModel):
 
     SCKEY: Optional[str] = ""
     SCTKEY: Optional[str] = ""
+    BARK_URL: Optional[str] = ""
     BARK_KEY: Optional[str] = ""
     BARK_GROUP: Optional[str] = ""
     BARK_ICON: Optional[str] = ""
