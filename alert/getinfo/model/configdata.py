@@ -3,12 +3,14 @@ import pydantic
 
 
 class ConfigData(pydantic.BaseModel):
+    RUN_ENV: Literal["local", "cloud"]
     UID: str
     COOKIE: str
     NAME: Optional[str]
 
     SCKEY: Optional[str] = ""
     SCTKEY: Optional[str] = ""
+    BARK_URL: Optional[str] = ""
     BARK_KEY: Optional[str] = ""
     BARK_GROUP: Optional[str] = ""
     BARK_ICON: Optional[str] = ""
@@ -42,6 +44,7 @@ class ConfigData(pydantic.BaseModel):
     RECEIVE_BOSS_COUNT: Literal["ON", "OFF"]
     RECEIVE_TASK_NUM: Literal["ON", "OFF"]
     REVEIVE_EXPEDITION_NUM: Literal["ON", "OFF"]
+    RECEIVE_HOMECOIN_ALERT: Literal["ON", "OFF"]
     EXPEDITION_COMPLETE_ALERT: Literal["ON", "OFF"]
     INCOMPLETE_ALERT: str
     SLEEP_TIME: int

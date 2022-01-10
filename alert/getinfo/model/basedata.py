@@ -16,6 +16,9 @@ class BaseData(pydantic.BaseModel):
     finished_task_num=0 完成的委托数量
     total_task_num=4 全部委托数量
     is_extra_task_reward_received=False 每日委托奖励是否领取
+    current_home_coin: 当前洞天宝钱数量
+    max_home_coin: 洞天宝钱存储上限
+    home_coin_recovery_time: 洞天宝钱溢出时间
 
     """
     current_resin: int
@@ -28,5 +31,8 @@ class BaseData(pydantic.BaseModel):
     finished_task_num: Literal[0, 1, 2, 3, 4]
     total_task_num: int = 4
     is_extra_task_reward_received: bool
+    current_home_coin: int
+    max_home_coin: int
+    home_coin_recovery_time: int
 
     expeditions: List[dict]

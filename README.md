@@ -105,8 +105,10 @@
 
 
 ### 0. 一些基础信息
-1. UID: 你游戏内的uid，填入config -> UID
-1. COOKIE: 在[原神米游社社区](https://bbs.mihoyo.com/ys)获取到的cookie 
+1. RUN_ENV：指定运行环境，国内云服务商运行使用`cloud`，否则使用`local`。该选项旨在为在国内云服务器运行的用户提供兼容性选项,`cloud`为旧版API，曾经无法使用，现在又恢复了。但由于米游社已全面更换为新的API，因此默认使用`local`环境即新API运行。
+    详情参考：[米游社可能已经禁止国内特定VPS服务商的IP或ASN](https://github.com/Arondight/Adachi-BOT/issues/522)
+2. UID: 你游戏内的uid，填入config -> UID
+3. COOKIE: 在[原神米游社社区](https://bbs.mihoyo.com/ys)获取到的cookie 
     获取方式：
     
     ```
@@ -273,10 +275,11 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 | Key                       |                      Comment                       |       Remark         |
 | ------------------------- | :------------------------------------------------: | :------------------: |
+| RUN_ENV                   |  运行环境，国内云服务商为`cloud`，其他使用`local`,[Ref](https://github.com/Arondight/Adachi-BOT/issues/522) |     local/cloud      |
 | UID                       |                      游戏uid                       |      100088888       |
 | COOKIE                    |                    米游社cookie                    |         ****         |
 | NAME                      |                      账号别名                      |    小号/女朋友的号   |
-| SCTKEY                    |                   Server酱                         |     SCT********      |
+| SCTKEY                    |                      Server酱                      |     SCT********      |
 | WW_ID                     |                     企业微信id                     |                      |
 | WW_APP_SECRET             |                   企业微信secret                   |                      |
 | WW_APP_USERID             |              企业微信接收消息的用户id              |                      |
@@ -293,6 +296,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | COOL_PUSH_MODE            |                   酷推推送模式                     | send/psend/group/pgroup |
 | COOL_PUSH_SENDID          |                  酷推指定接收方QQ号/群号           |                      |
 | QMSG_KEY                  |                   Qmsg酱推送KEY                    |                      |
+| BARK_URL                  |                   Bark 推送服务器                  | 默认为`https://api.day.app/`|
 | BARK_KEY                  |                   Bark App KEY                     |                      |
 | BARK_GROUP                |                  自定义 Bark 分组                  |  不填则使用默认分组  |
 | BARK_ICON                 |                自定义 Bark 通知图标                | 仅支持 Web URL 图片，不填则不使用自定义图标  |
@@ -309,6 +313,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | RECEIVE_BOSS_COUNT        |          是否接收本周boss树脂减半剩余次数          |        ON/OFF        |
 | RECEIVE_TASK_NUM          |                是否接收每日委托信息                |        ON/OFF        |
 | REVEIVE_EXPEDITION_NUM    |                是否接收探索派遣信息                |        ON/OFF        |
+| RECEIVE_HOMECOIN_ALERT    |             是否接收洞天宝钱溢出提醒               |        ON/OFF        |
 | INCOMPLETE_ALERT          |      在这个时间，如果每日委托未完成，进行提示      | "213030"(即21:30:30) |
 | EXPEDITION_COMPLETE_ALERT |              当探索派遣完成时发送提醒              |        ON/OFF        |
 | SELLP_TIME                | 程序每轮执行的休眠时间，为避免被封ip，建议稍微长点（单位：秒） |   900    |
@@ -317,10 +322,31 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 | SLEEP_END_TIME            |        休眠结束时间，与`SLEEP_START_TIME`配合使用    | "080000"(即08:00:00) |
 
 
-## 自定义提示信息：
-#### 根据需要修改getinfo中dataanalystic.py与notifiers中的几个文件即可(近几天有空会优化一下，现在有点丑)
-
 ## 更新日志
+### v1.3.1（2022-01-10）
+
+New Features:
+- 支持自定义 BARK 推送服务器
+
+Bug Fixes:
+- 修复 BARK 推送状态检测错误的问题
+
+### v1.3.0（2022-01-10）
+
+新年新气象~
+
+New Features:
+- 加入洞天宝钱信息，支持设置洞天宝钱溢出提醒，配置文件新增`RECEIVE_HOMECOIN_ALERT`字段
+- 增加睡前检查，若树脂在休眠期间溢出将在睡眠前发送提醒
+- 加入API切换选项，支持云服务器运行时指定使用旧版API
+- 优化消息排版
+
+Bug Fixes:
+- 修复树脂溢出提示无效的问题
+- 更新探索派遣新角色信息
+- 修复诺艾尔角色信息错误
+- 优化休眠逻辑
+
 ### v1.2.5（2021-12-24）
 
 - 同步米游社 API 变动，更换新的 API，请务必更新。
@@ -329,7 +355,7 @@ qqbot现在的部署有点麻烦= =使用了NoneBot2作为机器人框架,只支
 
 ### v1.2.4（2021-11-24）
 
-- BUG FIX：修复 cookie 出错时的异常退出问题
+- Bug Fixes：修复 cookie 出错时的异常退出问题
 
 ### v1.2.3（2021-11-23）
 

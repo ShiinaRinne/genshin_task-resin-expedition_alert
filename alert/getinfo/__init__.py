@@ -18,7 +18,7 @@ class Response(pydantic.BaseModel):
 
 
 class MysAPI:
-    def __init__(self, role_id: int, cookie: str):
+    def __init__(self, role_id: int, cookie: str, api: str):
         """
 
         :param role_id: avatar uid
@@ -30,7 +30,7 @@ class MysAPI:
             'role_id': role_id
         }
         self.cookie: str = cookie
-        
+        self.url = 'https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/dailyNote' if api == 'new' else 'https://api-takumi.mihoyo.com/game_record/app/genshin/api/dailyNote'
 
     @staticmethod
     def _request(url: str, cookie: str, method: Literal['GET', 'POST'] = 'GET', **kwargs: Any) -> dict:
@@ -48,5 +48,4 @@ class MysAPI:
         return response.data
 
     def get_dailyNote(self) -> Dict:
-        url = 'https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/dailyNote'
-        return BaseData.parse_obj(self._request(url, params=self.body, cookie=self.cookie))
+        return BaseData.parse_obj(self._request(self.url, params=self.body, cookie=self.cookie))

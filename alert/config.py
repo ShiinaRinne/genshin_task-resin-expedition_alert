@@ -26,9 +26,11 @@ class Config():
         self.config_data['ALERT_SUCCESS_SLEEP_TIME'] = self.get_config('ALERT_SUCCESS_SLEEP_TIME')
         self.config_data['SLEEP_START_TIME'] = self.get_config('SLEEP_START_TIME')
         self.config_data['SLEEP_END_TIME'] = self.get_config('SLEEP_END_TIME')
+        self.config_data['RECEIVE_HOMECOIN_ALERT'] = self.get_config('RECEIVE_HOMECOIN_ALERT')
 
         # Cookie configs
         # Cookie from https://bbs.mihoyo.com/ys/
+        self.config_data['RUN_ENV'] = self.get_config('RUN_ENV')
         self.config_data['NAME'] = self.get_config('NAME')
         self.config_data['UID'] = self.get_config('UID')
         self.config_data['COOKIE'] = self.get_config('COOKIE')
@@ -78,6 +80,7 @@ class Config():
         self.config_data['WW_BOT_KEY'] = self.get_config('WW_BOT_KEY')
 
         # Bark
+        self.config_data['BARK_URL'] = self.get_config('BARK_URL')
         self.config_data['BARK_KEY'] = self.get_config('BARK_KEY')
         self.config_data['BARK_GROUP'] = self.get_config('BARK_GROUP')
         self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
@@ -112,7 +115,13 @@ class Config():
             value = 900
         elif name == 'ALERT_SUCCESS_SLEEP_TIME' and not value:
             value = 1800
+        elif name == 'RECEIVE_HOMECOIN_ALERT' and not value:
+            value = "OFF"
+        elif name == 'RUN_ENV' and not value:
+            value = "local"
 
+        elif name == 'BARK_URL' and not value:
+            value = "https://api.day.app/"
         return value
 
 config = Config().config
