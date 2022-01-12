@@ -9,7 +9,7 @@ import locale
 from .notifiers.utils import log
 from .getinfo.receivedata import receive_data
 
-locale.setlocale(locale.LC_TIME, 'zh_CN')
+locale.setlocale(locale.LC_TIME, 'zh_CN.UTF-8')
 
 def send(text:str,status:str,message:str) -> None:
     try:
