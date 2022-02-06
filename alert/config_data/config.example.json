@@ -1,10 +1,11 @@
 {
-  "$schema": "https://ghproxy.com/https://raw.githubusercontent.com/yaomeng0722/genshin_task-resin-expedition_alert/master/alert/config_data/json_schema.json",
+  "$schema": "https://file-1257193553.cos.ap-shanghai.myqcloud.com/GenshinAlert/GAH_schema_v1.3.2.json",
   "RUN_ENV": "local",
   "UID": "",
   "COOKIE": "",
   "NAME": "",
-  "RESIN_ALERT_NUM": 150,
+
+  "RESIN_ALERT_NUM": 140,
   "RECEIVE_RESIN_DATA": "ON",
   "RECEIVE_BOSS_COUNT": "ON",
   "RECEIVE_TASK_NUM": "ON",
@@ -25,7 +26,7 @@
   "BARK_URL": "https://api.day.app/",
   "BARK_KEY": "",
   "BARK_GROUP": "",
-  "BARK_ICON": "",
+  "BARK_ICON": "https://ae03.alicdn.com/kf/Hca199ca287ee4ee8aa4c8004db6de367o.png",
   "BARK_ARCHIVE": "",
   "TG_BOT_API": "api.telegram.org",
   "TG_BOT_TOKEN": "",
