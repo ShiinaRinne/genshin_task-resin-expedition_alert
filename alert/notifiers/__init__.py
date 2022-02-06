@@ -3,7 +3,6 @@ from . import (
     discordwebhook,
     igot,
     pushplus,
-    serverchan,
     serverchanturbo,
     telegrambot,
     wechatworkapp,
@@ -11,7 +10,8 @@ from . import (
     coolpush,
     qmsg,
     bark,
-    cqhttp
+    cqhttp,
+    pushdeer
     )
 
 from .exceptions import NoSuchNotifierError
@@ -23,7 +23,6 @@ _all_notifiers = {
     'discordwebhook': discordwebhook.Discord,
     'igot': igot.Igot,
     'pushplus': pushplus.PushPlus,
-    'serverchan': serverchan.ServerChan,
     'serverchanturbo': serverchanturbo.ServerChanTurbo,
     'telegrambot': telegrambot.TelegramBot,
     'wechatworkapp': wechatworkapp.WechatWorkApp,
@@ -31,7 +30,8 @@ _all_notifiers = {
     'coolpush': coolpush.CoolPush,
     'qmsg': qmsg.Qmsg,
     'bark':bark.Bark,
-    'cqhttp':cqhttp.Cqhttp
+    'cqhttp':cqhttp.Cqhttp,
+    'pushdeer':pushdeer.Pushdeer
 }
 
 
@@ -50,8 +50,8 @@ def get_notifier(name=None):
 def send2all(text='',status:str='',desp:str=''):
     for notifier in _all_notifiers:
         # 不支持 MARKDOWN 语法的推送渠道不做处理
-        if (notifier in ['pushpuls','serverchan','serverchanturbo']):
-            markdown_message = f'```{desp}'
+        if (notifier in ['telegrambot','serverchanturbo','pushdeer']):
+            markdown_message = f'```\n{desp}\n```'
         else:
             markdown_message = desp
         get_notifier(notifier).send(text, status, markdown_message)

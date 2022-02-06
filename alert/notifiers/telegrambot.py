@@ -14,6 +14,7 @@ class TelegramBot(Base):
         data = {
             'chat_id': config.TG_USER_ID,
             'text': f'{text} {status}\n\n{desp}',
-            'disable_web_page_preview': True
+            'disable_web_page_preview': True,
+            'parse_mode': 'MarkdownV2'
         }
         return self.push('post', url, data=data)

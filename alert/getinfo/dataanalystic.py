@@ -10,6 +10,7 @@ def seconds2hours(seconds: int) -> str:
 
 
 def get_resin_data(base_data: BaseData) -> str:
+    
     current_resin: str = f"{base_data.current_resin}/{base_data.max_resin}"
     resin_data = f"当前树脂：{current_resin}\n"
     if(base_data.current_resin < 160):
@@ -18,7 +19,8 @@ def get_resin_data(base_data: BaseData) -> str:
             8 * 60 - ((base_data.max_resin - base_data.current_resin) * 8 * 60 - base_data.resin_recovery_time))
         resin_data += f"下个/全部树脂恢复倒计时：{next_resin_rec_time}/{resin_recovery_time}\n"
         overflow_time = datetime.datetime.now() + datetime.timedelta(seconds=base_data.resin_recovery_time)
-        resin_data += f"全部树脂恢复时间：{overflow_time.strftime('%a')} {overflow_time.strftime('%X')}"
+        day = '今天' if datetime.datetime.now().day == overflow_time.day else '明天'
+        resin_data += f"全部树脂恢复时间：{day} {overflow_time.strftime('%X')}"
     return resin_data
 
 
@@ -31,9 +33,10 @@ def get_task_num_data(base_data: BaseData) -> str:
     return f"今日完成委托数量：{task_num} 奖励{'已' if base_data.is_extra_task_reward_received else '未'}领取\n--------------------"
 
 def get_home_coin_data(base_data: BaseData) -> str:
+    week_day_dict = {0: '周一',1: '周二',2: '周三',3: '周四',4: '周五',5: '周六',6: '周日',}
     coin_data = f"当前洞天宝钱/洞天宝钱上限：{base_data.current_home_coin}/{base_data.max_home_coin}\n"
-    home_coin_recovery_time = seconds2hours(base_data.home_coin_recovery_time)
-    coin_data += f"洞天宝钱溢出倒计时：{home_coin_recovery_time}\n--------------------"
+    coin_overflow_time = datetime.datetime.now() + datetime.timedelta(seconds=base_data.home_coin_recovery_time)
+    coin_data += f"洞天宝钱全部恢复时间：{week_day_dict[coin_overflow_time.weekday()]} {coin_overflow_time.strftime('%X')}\n--------------------"
     return coin_data
 
 def get_expedition_data(base_data: BaseData) -> str:
@@ -49,15 +52,15 @@ def get_expedition_data(base_data: BaseData) -> str:
         try:
             avatar_name: str = avatar_json[avatar]
         except KeyError:
-            avatar_name: str = avatar+"（请自行修改avatar_name.json或获取更新）"
+            avatar_name: str = avatar
 
         if(expedition['status'] == 'Finished'):
-            expedition_info.append(f"{avatar_name} 已完成")
+            expedition_info.append(f"  · {avatar_name} 已完成")
             finished += 1
         else:
             remained_timed: str = seconds2hours(expedition['remained_time'])
             expedition_info.append(
-                f"{avatar_name} 未完成，剩余时间{remained_timed}")
+                f"  · {avatar_name} 未完成，剩余时间{remained_timed}")
 
     expedition_num: str = f"{base_data.current_expedition_num}/{finished}/{base_data.max_expedition_num}"
     expedition_data: str = "\n".join(expedition_info)
