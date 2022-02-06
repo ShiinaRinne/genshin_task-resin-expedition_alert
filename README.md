@@ -6,11 +6,11 @@
 
 **推送示例**
 
-![](https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png)
+<img src="https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png" width="400px" />
 
 **通知中心**
 
-![](https://s2.loli.net/2022/02/06/m3JuvoHF9VzLIRM.png)
+<img src="https://s2.loli.net/2022/02/06/m3JuvoHF9VzLIRM.png" width="400px" />
 
 **各推送渠道展示**
 
@@ -18,43 +18,43 @@
 
 **锁屏通知**
 
-![](https://s2.loli.net/2022/02/06/IGzRZarEfjwdnY7.png)
+<img src="https://s2.loli.net/2022/02/06/IGzRZarEfjwdnY7.png" style="zoom:50%;" />
 
 **微信**
 
-![](https://s2.loli.net/2022/02/06/wBgTWO3xfDnA6lC.png)
+<img src="https://s2.loli.net/2022/02/06/wBgTWO3xfDnA6lC.png" style="zoom:50%;" />
 
 **企业微信**
 
-![](https://s2.loli.net/2022/02/06/UrpmkKiSJN21xGH.png)
+<img src="https://s2.loli.net/2022/02/06/UrpmkKiSJN21xGH.png" style="zoom:50%;" />
 
 **Bark**
 
-![](https://s2.loli.net/2022/02/06/CwpKF6qX98EGboe.png)
+<img src="https://s2.loli.net/2022/02/06/CwpKF6qX98EGboe.png" style="zoom:50%;" />
 
 **Server 酱**
 
-![](https://s2.loli.net/2022/02/06/2mBxjlWPyCsgo7d.png)
+<img src="https://s2.loli.net/2022/02/06/2mBxjlWPyCsgo7d.png" style="zoom:50%;" />
 
 **Telegram Bot**
 
-![](https://s2.loli.net/2022/02/06/12k3XPWxJioOlyh.png)
+<img src="https://s2.loli.net/2022/02/06/12k3XPWxJioOlyh.png" style="zoom:50%;" />
 
 **Pushdeer**
 
-![](https://s2.loli.net/2022/02/06/oRcmCxtaWf5FDN3.png)
+<img src="https://s2.loli.net/2022/02/06/oRcmCxtaWf5FDN3.png" style="zoom:50%;" />
 
 **PUSH PLUS**
 
-![](https://s2.loli.net/2022/02/06/5BoEWzvuxahU4G8.png)
+<img src="https://s2.loli.net/2022/02/06/5BoEWzvuxahU4G8.png" style="zoom:50%;" />
 
 **钉钉群机器人**
 
-![](https://s2.loli.net/2022/02/06/5IfT1jEGQwOUHJl.png)
+<img src="https://s2.loli.net/2022/02/06/5IfT1jEGQwOUHJl.png" style="zoom:50%;" />
 
 **QQ**
 
-![](https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png)
+<img src="https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png" style="zoom:50%;" />
 
 </details>
 
@@ -369,16 +369,16 @@ qqbot 现在的部署有点麻烦= =使用了 NoneBot2 作为机器人框架,只
     运行.exe 文件或者`./go-cqhttp`启动<br>
 
             生成默认配置文件并修改默认配置<br>
-
+        
             修改`config.yml`文件<br>
-
+        
             account:<br>
                uin: 机器人QQ号<br>
                 password: "机器人密码"<br>
-
+        
             message:<br>
                 post-format: array<br>
-
+        
             servers:<br>
               - ws-reverse:<br>
                   universal: ws://127.0.0.1:8080/cqhttp/ws<br>
