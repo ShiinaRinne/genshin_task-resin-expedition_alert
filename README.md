@@ -4,33 +4,59 @@
 
 ## 示例
 
+**推送示例**
+
+![](https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png)
+
+**通知中心**
+
+![](https://s2.loli.net/2022/02/06/m3JuvoHF9VzLIRM.png)
+
+**各推送渠道展示**
+
+<details>
+
+**锁屏通知**
+
+![](https://s2.loli.net/2022/02/06/IGzRZarEfjwdnY7.png)
+
+**微信**
+
+![](https://s2.loli.net/2022/02/06/wBgTWO3xfDnA6lC.png)
+
 **企业微信**
 
-![](https://i.loli.net/2021/10/19/uoGFiY7b1fecZhR.png)
+![](https://s2.loli.net/2022/02/06/UrpmkKiSJN21xGH.png)
+
+**Bark**
+
+![](https://s2.loli.net/2022/02/06/CwpKF6qX98EGboe.png)
 
 **Server 酱**
 
-![](https://i.loli.net/2021/10/19/mVjvS3YTLliXg17.png)
+![](https://s2.loli.net/2022/02/06/2mBxjlWPyCsgo7d.png)
 
 **Telegram Bot**
 
-![](https://i.loli.net/2021/10/19/tTvZgExA1db9uPN.png)
+![](https://s2.loli.net/2022/02/06/12k3XPWxJioOlyh.png)
+
+**Pushdeer**
+
+![](https://s2.loli.net/2022/02/06/oRcmCxtaWf5FDN3.png)
 
 **PUSH PLUS**
 
-![](https://i.loli.net/2021/10/19/OUzfnrJRuxAFwc9.png)
+![](https://s2.loli.net/2022/02/06/5BoEWzvuxahU4G8.png)
 
 **钉钉群机器人**
 
-![](https://i.loli.net/2021/10/19/P5RLCksmBUfOyJo.png)
-
-**CoolPush**
-
-![](https://i.loli.net/2021/10/21/QpK1Mi3VdwsDml5.png)
+![](https://s2.loli.net/2022/02/06/5IfT1jEGQwOUHJl.png)
 
 **QQ**
 
-![](https://youngmoe.com/img/hoyolab_resin/7.png)
+![](https://s2.loli.net/2022/02/06/hdXcnRiM2Elg9C6.png)
+
+</details>
 
 ## 食用方法
 
@@ -122,7 +148,7 @@
 | RECEIVE_HOMECOIN_ALERT    |                    是否接收洞天宝钱溢出提醒                     |                      ON/OFF                      |
 | INCOMPLETE_ALERT          |            在这个时间，如果每日委托未完成，进行提示             |              "213030"(即 21:30:30)               |
 | EXPEDITION_COMPLETE_ALERT |                    当探索派遣完成时发送提醒                     |                      ON/OFF                      |
-| SELLP_TIME                | 执行每轮检查的等待时间，为避免被封 ip，建议稍微长点（单位：秒） |                        900                       |
+| SELLP_TIME                | 执行每轮检查的等待时间，为避免被封 ip，建议稍微长点（单位：秒） |                       900                        |
 | ALERT_SUCCESS_SLEEP_TIME  |    推送成功后的等待时间，为避免扰民可以设置长点（单位：秒）     |                       1800                       |
 | SLEEP_START_TIME          |     休眠开始时间，避免深夜扰民，与`SLEEP_END_TIME`配合使用      |              "230000"(即 23:00:00)               |
 | SLEEP_END_TIME            |           休眠结束时间，与`SLEEP_START_TIME`配合使用            |              "080000"(即 08:00:00)               |
@@ -140,14 +166,13 @@
 | TG_BOT_TOKEN              |                       Telegram Bot token                        |                                                  |
 | TG_USER_ID                |                      接收消息账号的 userid                      | 可用[@userinfobot](https://t.me/userinfobot)获取 |
 | PUSHDEER_KEY              |                       Pushdeer 的 pushkey                       |                                                  |
-| CQHTTP_IP                 |                       cq-http 的 ip 地址                        |                                                  |
-| CQHTTP_PORT               |                     cq-http 的 HTTP 端口号                      |                    默认 5700                     |
-| CQHTTP_MESSAGE_TYPE       |     cq-http 的消息发送方式，`private`为私聊，`group`为群聊      |                  private/group                   |
+| CQHTTP_URL                |      cqhttp 的 API 地址，格式：`协议头://IP 或域名:端口号`      |    需包含协议头，如：http://example.com:5700/    |
+| CQHTTP_MESSAGE_TYPE       |      cqhttp 的消息发送方式，`private`为私聊，`group`为群聊      |                  private/group                   |
 | CQHTTP_SEND_ID            |                    接收消息的 qq 号码/群号码                    |                                                  |
 | CQHTTP_TOKEN              |                     cqhttp 的 CQHTTP_TOKEN                      |                 未设置不需要填写                 |
 | DD_BOT_TOKEN              |                     钉钉机器人 access_token                     |                                                  |
 | DD_BOT_SECRET             |                       钉钉机器人加签密钥                        |                                                  |
-| SCTKEY                    |                            Server 酱                            |                   SCT********                    |
+| SCTKEY                    |                            Server 酱                            |                 SCT**\*\*\*\***                  |
 | PUSH_PLUS_TOKEN           |                       PushPlus 推送 token                       |                                                  |
 | PUSH_PLUS_USER            |                   PushPlus 一对多推送群组 id                    |                不填则为一对一推送                |
 | COOL_PUSH_SKEY            |                            酷推 SKEY                            |                                                  |
@@ -255,7 +280,7 @@
 <details>
 
 1. 部署 [GO-CQHTTP](https://github.com/Mrs4s/go-cqhttp)，参见文档[快速开始](https://docs.go-cqhttp.org/guide/quick_start.html#%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B)，也可使用其他兼容 [OneBot-v11](https://github.com/botuniverse/onebot-11) 规范的框架或 SDK。
-2. 将 CQHTTP 的服务器 IP/域名填入 `CQHTTP_IP`，端口号填入 `CQHTTP_PORT`。
+2. 将 CQHTTP 的服务器`协议头://IP或域名:端口号`填入 `CQHTTP_URL`，需包含协议头，如：`http://1.2.3.4:5700/`或`https://example.com/`。
 3. 配置发送模式 `CQHTTP_MESSAGE_TYPE`，`private` 为私聊发送，`group` 为群聊发送。
 4. 配置消息接收方的 QQ 号/群号，填入 `CQHTTP_SEND_ID`，与发送模式匹配。
 5. 若配置了`Access Token`，需要填写 `CQHTTP_TOKEN`。
@@ -375,6 +400,13 @@ qqbot 现在的部署有点麻烦= =使用了 NoneBot2 作为机器人框架,只
 New Features:
 
 - 新增 Pushdeer 推送通道
+- 移除旧版 Serverchan 推送通道
+- 优化推送内容
+
+Bug Fixes:
+
+- 调整 cqhttp 参数，将`CQHTTP_IP`和`CQHTTP_PORT`合并为`CQHTTP_URL`
+- 调整部分通道渲染样式
 
 ### v1.3.2（2022-01-12）
 
