@@ -1,6 +1,6 @@
 # 原神提醒小助手 | Genshin Alert Helper
 
-用来检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况的小工具，只支持国服。
+用来检查并推送原神内树脂、委托、周本、探索派遣和洞天宝钱情况的小工具，支持多渠道推送，只支持国服。
 
 ## 示例
 
@@ -196,7 +196,7 @@
 |     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐         |
 |         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐         |
 | [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网   |
-|    [Pushdeer](#4-pusherdeer)    |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
+|    [Pushdeer](#4-pushdeer)    |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
 |    [go-cqhttp](#5-go-cqhttp)    |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
 | [钉钉群机器人](#6-钉钉群机器人) |  ✅ 支持  |              钉钉群              |                         |
 |    [Server 酱](#7-server-酱)    |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
@@ -261,7 +261,7 @@
 
 </details>
 
-### 4. Pusherdeer
+### 4. Pushdeer
 
 <details>
 
