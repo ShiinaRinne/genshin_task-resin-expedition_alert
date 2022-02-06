@@ -35,41 +35,7 @@ class Config():
         self.config_data['UID'] = self.get_config('UID')
         self.config_data['COOKIE'] = self.get_config('COOKIE')
 
-        # # Notifier configs
-        # Cool Push
-        self.config_data['COOL_PUSH_SKEY'] = self.get_config('COOL_PUSH_SKEY')
-        self.config_data['COOL_PUSH_MODE'] = self.get_config('COOL_PUSH_MODE')
-        self.config_data['COOL_PUSH_SENDID'] = self.get_config('COOL_PUSH_SENDID')
-        
-        # # Custom Notifier Config
-        # self.CUSTOM_NOTIFIER = self.get_config('CUSTOM_NOTIFIER')
-
-        # DingTalk Bot
-        self.config_data['DD_BOT_TOKEN'] = self.get_config('DD_BOT_TOKEN')
-        self.config_data['DD_BOT_SECRET'] = self.get_config('DD_BOT_SECRET')
-
-        # Discord webhook
-        self.config_data['DISCORD_WEBHOOK'] = self.get_config('DISCORD_WEBHOOK')
-
-        # iGot
-        self.config_data['IGOT_KEY'] = self.get_config('IGOT_KEY')
-
-        # pushplus
-        self.config_data['PUSH_PLUS_TOKEN'] = self.get_config('PUSH_PLUS_TOKEN')
-        self.config_data['PUSH_PLUS_USER'] = self.get_config('PUSH_PLUS_USER')
-
-        #QMSG酱
-        self.config_data['QMSG_KEY'] = self.get_config('QMSG_KEY')
-
-        # Server Chan
-        self.config_data['SCKEY'] = self.get_config('SCKEY')
-        self.config_data['SCTKEY'] = self.get_config('SCTKEY')
-
-        # Telegram Bot
-        self.config_data['TG_BOT_API'] = self.get_config('TG_BOT_API')
-        self.config_data['TG_BOT_TOKEN'] = self.get_config('TG_BOT_TOKEN')
-        self.config_data['TG_USER_ID'] = self.get_config('TG_USER_ID')
-
+    # Notifier configs
         # WeChat Work App
         self.config_data['WW_ID'] = self.get_config('WW_ID')
         self.config_data['WW_APP_SECRET'] = self.get_config('WW_APP_SECRET')
@@ -86,12 +52,47 @@ class Config():
         self.config_data['BARK_ICON'] = self.get_config('BARK_ICON')
         self.config_data['BARK_ARCHIVE'] = self.get_config('BARK_ARCHIVE')
 
+        # Telegram Bot
+        self.config_data['TG_BOT_API'] = self.get_config('TG_BOT_API')
+        self.config_data['TG_BOT_TOKEN'] = self.get_config('TG_BOT_TOKEN')
+        self.config_data['TG_USER_ID'] = self.get_config('TG_USER_ID')
+
+        # Pushdeer
+        self.config_data['PUSHDEER_KEY'] = self.get_config('PUSHDEER_KEY')
+
         #cqhttp
-        self.config_data['CQHTTP_IP'] = self.get_config('CQHTTP_IP')
-        self.config_data['CQHTTP_PORT'] = self.get_config('CQHTTP_PORT')
+        self.config_data['CQHTTP_URL'] = self.get_config('CQHTTP_URL')
         self.config_data['CQHTTP_MESSAGE_TYPE'] = self.get_config('CQHTTP_MESSAGE_TYPE')
         self.config_data['CQHTTP_SEND_ID'] = self.get_config('CQHTTP_SEND_ID')
         self.config_data['CQHTTP_TOKEN'] = self.get_config('CQHTTP_TOKEN')
+
+        # DingTalk Bot
+        self.config_data['DD_BOT_TOKEN'] = self.get_config('DD_BOT_TOKEN')
+        self.config_data['DD_BOT_SECRET'] = self.get_config('DD_BOT_SECRET')
+
+        # Server Chan
+        self.config_data['SCTKEY'] = self.get_config('SCTKEY')
+
+        # pushplus
+        self.config_data['PUSH_PLUS_TOKEN'] = self.get_config('PUSH_PLUS_TOKEN')
+        self.config_data['PUSH_PLUS_USER'] = self.get_config('PUSH_PLUS_USER')
+
+        # Cool Push
+        self.config_data['COOL_PUSH_SKEY'] = self.get_config('COOL_PUSH_SKEY')
+        self.config_data['COOL_PUSH_MODE'] = self.get_config('COOL_PUSH_MODE')
+        self.config_data['COOL_PUSH_SENDID'] = self.get_config('COOL_PUSH_SENDID')
+
+        #QMSG酱
+        self.config_data['QMSG_KEY'] = self.get_config('QMSG_KEY')
+
+        # Discord webhook
+        self.config_data['DISCORD_WEBHOOK'] = self.get_config('DISCORD_WEBHOOK')
+
+        # iGot
+        self.config_data['IGOT_KEY'] = self.get_config('IGOT_KEY')
+
+        # # Custom Notifier Config
+        # self.CUSTOM_NOTIFIER = self.get_config('CUSTOM_NOTIFIER')
 
         self.config = ConfigData.parse_obj(self.config_data)
 

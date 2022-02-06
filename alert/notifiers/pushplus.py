@@ -10,12 +10,12 @@ class PushPlus(Base):
         self.retcode_value = 200
 
     def send(self, text, status, desp):
-        url = 'http://www.pushplus.plus/send'
+        url = 'https://www.pushplus.plus/send'
         data = {
             'token': config.PUSH_PLUS_TOKEN,
             'title': f'{text} {status}',
             'content': desp,
-            'template': 'markdown',
+            'template': 'txt',
             'topic': config.PUSH_PLUS_USER
         }
         return self.push('post', url, data=data)

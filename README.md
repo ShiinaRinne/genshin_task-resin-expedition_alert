@@ -207,6 +207,11 @@
 
    ![img](https://s2.loli.net/2022/02/06/wOJ47LAVcX6Par8.png)
 
+注：如果出现`接口请求正常，企业微信接受消息正常，个人微信无法收到消息`的情况：
+
+   1. 进入「我的企业」 → 「[微信插件](https://work.weixin.qq.com/wework_admin/frame#profile/wxPlugin)」，拉到最下方，勾选 “允许成员在微信插件中接收和回复聊天消息” ![img](https://s2.loli.net/2022/02/06/sF8MS3ZBUCueN7I.jpg)
+   2. 在企业微信客户端 「我」 → 「设置」 → 「新消息通知」中关闭 “仅在企业微信中接受消息” 限制条件 ![img](https://s2.loli.net/2022/02/06/OdyJslVKtekTIAX.jpg)
+
 </details>
 
 ### 2. Bark
