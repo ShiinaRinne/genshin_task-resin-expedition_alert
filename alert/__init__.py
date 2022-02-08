@@ -101,7 +101,6 @@ def check(base_data,message):
         send(text="亲爱的旅行者，",status=status, message=message)
     # 开始休眠
     log.info(f'😴 本轮运行结束，休眠{sleep_time}秒')
-    print(sleep_time)
     time.sleep(sleep_time)
 
 def check_before_sleep(sleep_time,base_data,status):

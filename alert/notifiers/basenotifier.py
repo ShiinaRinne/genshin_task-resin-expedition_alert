@@ -28,26 +28,32 @@ class BaseNotifier(object):
             # log.info(f'{self.name} 🚫')
             return
         try:
-            response = request(method, url, 2, params, data, json, headers).json()
+            response = request(method, url, 2, params, data, json, headers)
         except Exception as e:
-            raise NotificationError(f'{self.name} 😳\n{e}')
+            log.error(f'{self.name} 😳\n{e}')
+            raise NotificationError()
         else:
-            retcode = response.get('data', {}).get(
-                self.retcode_key,
-                -1) if self.name == 'Server Chan Turbo' else response.get(
-                self.retcode_key, -1)
+            if self.name == 'Server Chan Turbo':
+                retcode = response.json().get('data', {}).get(self.retcode_key,-1)
+            elif self.name == 'Discord':
+                retcode = response.status_code
+            else :
+                retcode = response.json().get(self.retcode_key, -1)
             if retcode == self.retcode_value:
                 log.info(f'{self.name} 🥳')
 
             # Telegram Bot
             elif self.name == 'Telegram Bot' and retcode:
                 log.info(f'{self.name} 🥳')
-            elif self.name == 'Telegram Bot' and response[self.retcode_value] == 400:
-                raise NotificationError(f'{self.name} 😳\n请主动给 bot 发送一条消息并检查 TG_USER_ID 是否正确')
-            elif self.name == 'Telegram Bot' and response[self.retcode_value] == 401:
-                raise NotificationError(f'{self.name} 😳\nTG_BOT_TOKEN 错误')
+            elif self.name == 'Telegram Bot' and response.json()[self.retcode_value] == 400:
+                log.error(f'{self.name} 😳\n请主动给 bot 发送一条消息并检查 TG_USER_ID 是否正确')
+                raise NotificationError()
+            elif self.name == 'Telegram Bot' and response.json()[self.retcode_value] == 401:
+                log.error(f'{self.name} 😳\nTG_BOT_TOKEN 错误')
+                raise NotificationError()
             else:
-                raise NotificationError(f'{self.name} 😳\n{response}')
-        #一个推送渠道失败后不会继续进行推送
+                log.error(f'{self.name} 😳\n{response}')
+                raise NotificationError()
+        # 一个推送渠道失败后不会继续进行推送
         finally:
             return
