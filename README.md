@@ -175,11 +175,11 @@
 | SCTKEY                    |                            Server 酱                            |                 SCT**\*\*\*\***                  |
 | PUSH_PLUS_TOKEN           |                       PushPlus 推送 token                       |                                                  |
 | PUSH_PLUS_USER            |                   PushPlus 一对多推送群组 id                    |                不填则为一对一推送                |
+| DISCORD_WEBHOOK           |                         Discord 推送地址                        |                                                  |
 | COOL_PUSH_SKEY            |                            酷推 SKEY                            |                                                  |
 | COOL_PUSH_MODE            |                          酷推推送模式                           |             send/psend/group/pgroup              |
 | COOL_PUSH_SENDID          |                    酷推指定接收方 QQ 号/群号                    |                                                  |
 | QMSG_KEY                  |                         Qmsg 酱推送 KEY                         |                                                  |
-| DISCORD_WEBHOOK           |                             未测试                              |                      未测试                      |
 | IGOT_KEY                  |                             未测试                              |                      未测试                      |
 
 ## 推送方式配置
@@ -193,17 +193,17 @@
 
 |            推送渠道             | 支持情况  |             推送通道             |          备注           |
 | :-----------------------------: | :-------: | :------------------------------: | :---------------------: |
-|     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐         |
-|         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐         |
-| [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网   |
-|    [Pushdeer](#4-pushdeer)    |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
+|     [企业微信](#1-企业微信)     |  ✅ 支持  |          微信（全平台）          |         推荐 ⭐        |
+|         [Bark](#2-bark)         |  ✅ 支持  |         APP（仅限 iOS）          |         推荐 ⭐        |
+| [Telegram Bot](#3-telegram-bot) |  ✅ 支持  |        Telegram（全平台）        |   推荐 ⭐，需科学上网  |
+|     [Pushdeer](#4-pushdeer)     |  ✅ 支持  | 轻 APP(iOS)/APP(安卓)/APP(MacOS) | 推荐 iOS 和小米设备使用 |
 |    [go-cqhttp](#5-go-cqhttp)    |  ✅ 支持  |                QQ                |  需自行部署 go-cqhttp   |
 | [钉钉群机器人](#6-钉钉群机器人) |  ✅ 支持  |              钉钉群              |                         |
 |    [Server 酱](#7-server-酱)    |  ✅ 支持  |        多渠道推送(微信等)        |    免费版每天限 5 条    |
 |    [pushplus](#8-push-plus)     |  ✅ 支持  |     多渠道推送(微信/邮件等)      |                         |
+|         Discord_Webhook         |  ✅ 支持  |                                  |                         |
 |  [Cool Push](#9-coolpush-酷推)  |  ✅ 支持  |                QQ                |                         |
 |     [Qmsg 酱](#10-qmsg-酱)      |  ✅ 支持  |                QQ                |                         |
-|         Discord_Webhook         | 🛠️ 未测试 |                                  |                         |
 |              IGOT               | 🛠️ 未测试 |                                  |                         |
 
 ### 1. 企业微信
