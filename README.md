@@ -395,6 +395,12 @@ qqbot 现在的部署有点麻烦= =使用了 NoneBot2 作为机器人框架,只
 
 ## 更新日志
 
+### v2.0.0+
+
+[Genshin-Dailynote-Helper](https://github.com/Xm798/Genshin-Dailynote-Helper)
+
+是本项目的破坏性更新，使用 yaml 格式的配置文件，新增国际服支持等其他新功能。本项目会继续维持必要的错误修复。
+
 ### v1.3.3（2022-02-06）
 
 New Features:
